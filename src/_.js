@@ -10,6 +10,10 @@ var BUILDER =
 	[
 		"src/modula.intro.js",
 		"src/modula.simplify.js",
+
+		"inProgress/modula.combine.js",
+		"inProgress/modula.containsAll.js",
+
 		"src/modula.indexOf.js",
 		"src/modula.isArray.js",
 		"src/modula.isArraylike.js",
@@ -27,5 +31,14 @@ var BUILDER =
 		"src/modula.modula.js",
 		"src/modula.modula.core.js",
 		"src/modula.modula.extended.js",
+
+		"inProgress/modula.Cache.js",
+
+		"inProgress/modula.select.Regex.js",
+		"inProgress/modula.select.Strings.js",
+		"inProgress/modula.select.Tokenizer.js",
+
+		"inProgress/modula.taskManager.js",
+
 		"src/modula.outro.js"
 	];
