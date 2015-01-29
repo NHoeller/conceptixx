@@ -1,8 +1,17 @@
-/*
+/**
  * modula is currently not using grunt or something else to
  * automatically build a development file so in here will be
  * listed all files that have to be combined to get the
  * modula.js file
+ * 
+ * i will try to add a self executing function that adds the 
+ * complete modula to a script tag with id "modula".
+ * the dataset "flag" will be used in later progress of the project
+ * 
+ * @example :
+ * ---- html code
+<script type="text/javascript" id="modula" data-flag=""></script>
+ * ---- html code
  *
  * @status : uncomplete
  */
@@ -42,3 +51,16 @@ var BUILDER =
 
 		"src/modula.outro.js"
 	];
+
+
+/**
+ *
+ */
+(function( builder ) {
+	// create some variables
+	var header = document.getElementById( "modula" );
+	// create ajax request loop for builder elements
+	for( var i in builder ) {
+		console.log( i );
+	}
+} )( BUILDER );
