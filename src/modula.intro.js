@@ -7,6 +7,7 @@
    * define some variables
    */
   var
+  modulaCore,
 
 
   /**
