@@ -10,6 +10,7 @@
  * with recursion
  */
 
+
 	/**
 	 * isEqual function checks if 2 objects/arrays are (deep)equal
 	 */

@@ -10,6 +10,7 @@
  * Array.prototype.indexOf.call usage. simplifying this function is not necessary
  */
 
+
 	/**
 	 * indexOf (this is faster than the native one)
 	 * @see : http://jsperf.com/js-for-loop-vs-array-indexof/82

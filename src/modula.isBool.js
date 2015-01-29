@@ -9,6 +9,7 @@
  * isBool checks if an argument is of type boolean
  */
 
+
 	/**
 	 * isBool
 	 */

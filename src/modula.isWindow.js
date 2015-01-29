@@ -10,6 +10,7 @@
  * 
  */
 
+
 	/**
 	 * check if object is the window object
 	 */

@@ -16,6 +16,7 @@
  * myCache.index_name // is the same like the 2 examples before
  */
 
+
 	/**
 	 * modulaCache (this is nearly the smallest cache possible)
 	 */

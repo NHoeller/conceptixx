@@ -23,6 +23,7 @@ myFunc_2( myObject , "newValue" ); // result myObject { property : "newValue" }
  *---- js.code
  */
 
+
 	/**
 	 * define 'simplify' function
 	 */

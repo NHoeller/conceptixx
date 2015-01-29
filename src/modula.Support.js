@@ -13,6 +13,7 @@
  * Support.test = Support( function() { return true; } ); // result Support.test = true
  */
 
+
 	/**
 	 * Support
 	 */

@@ -9,6 +9,7 @@
  * isCollection checks if an object is a HTMLCollection, NodeList or a single DOM node
  */
 
+
 	/**
 	 * check if subject is a valid modula node collection
 	 */

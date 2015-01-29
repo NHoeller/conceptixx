@@ -12,6 +12,7 @@
  * var myType = type( function() {} ); // result myType = "Function"
  */
 
+
 	/**
 	 * gets the type of an object
 	 */

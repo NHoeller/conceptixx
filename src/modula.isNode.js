@@ -13,6 +13,7 @@
  * alert( isNode( new Array() ) ); // alerts "false"
  */
 
+
 	/**
 	 * isNode function returns true if node, false otherwise
 	 */

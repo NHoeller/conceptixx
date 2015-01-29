@@ -14,6 +14,7 @@
  * console.log( isNative( alert ) ); // logs "true" to console
  */
 
+
 	/**
 	 * isNative checks for native functions
 	 */

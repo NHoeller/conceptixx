@@ -9,6 +9,7 @@
  * isInstance checks for a given instance or modula if left empty
  */
 
+
 	/**
 	 * isInstance function checks for modula objects
 	 */
