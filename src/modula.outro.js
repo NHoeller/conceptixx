@@ -23,4 +23,4 @@
 	return modula;
 
 
-})( window );
+} )( window );
