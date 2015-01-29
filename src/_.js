@@ -10,5 +10,7 @@ var BUILDER =
   [
     "src/modula.intro.js",
     "src/modula.modula.js",
+    "src/modula.modula.core.js",
+    "src/modula.modula.extended.js",
     "src/modula.outro.js"
   ];
