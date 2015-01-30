@@ -3,7 +3,7 @@
  * @package : core
  * @internal : Support
  * @type : function / object
- * @dependencies : none
+ * @dependencies : Propertizer
  *
  * @description :
  * the Support is used to build crossbrowser compatible modula.js
@@ -17,7 +17,7 @@
 	/**
 	 * Support
 	 */
-	Support = function( fn ) {
+	Support = Propertizer( "Support" , function( fn ) {
 		var div = doc.createElement( 'div' );
 		try {
 			return !!fn( div );
@@ -27,4 +27,4 @@
 			div.parentNode && div.parentNode.removeChild( div );
 			div = null;
 		};
-	};
+	} );
