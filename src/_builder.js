@@ -18,8 +18,8 @@ var BUILDER =
 		"../src/modula.Cache.js",
 		"../src/modula.Propertizer.js",
 
-		"../inProgress/modula.combine.js",
-		"../inProgress/modula.containsAll.js",
+		"../src/modula.combine.js",
+		"../src/modula.containsAll.js",
 		"../src/modula.Support.js",
 
 		"../src/modula.indexOf.js",
@@ -36,14 +36,17 @@ var BUILDER =
 		"../src/modula.isSibling.js",
 		"../src/modula.isWindow.js",
 
+		"../src/modula.extend.js",
+
 		"../src/modula.modula.js",
 		"../src/modula.modula.core.js",
 		"../src/modula.modula.extended.js",
 
-		"../inProgress/modula.select.Strings.js",
-		"../inProgress/modula.select.Regex.js",
-		"../inProgress/modula.select.Tokenizer.js",
+		"../src/modula.select.Strings.js",
+		"../src/modula.select.Regex.js",
+		"../src/modula.select.Tokenizer.js",
 
+		"../inProgress/modula.ready.js",
 		"../inProgress/modula.taskManager.js",
 
 		"../src/modula.outro.js"

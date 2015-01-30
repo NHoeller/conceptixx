@@ -17,10 +17,12 @@
 	modula.core = {
 
 			version : version,
-			
+
 			constructor : modula,
 
 			uid : 'modula.js' + 1 * Date.now(),
+
+			extend : Propertizer( "extend" ),
 
 	};
 	var

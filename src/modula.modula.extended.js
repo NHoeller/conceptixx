@@ -18,21 +18,25 @@
 	modula.extended = {
 
 			version : version,
-			
+
 			constructor : modula,
 
 			uid : 'extended.modula.js' + 1 * Date.now(),
 
+			extend : Propertizer( "extend" ),
+
 	};
 	var
-	extended = modula.extended.prototype = {};
+	extended = modula.extended.prototype = {
+	};
 
 
 	/**
 	 * define init for modula.extended
 	 */
 	var
-	extendedinit = modula.extended.init = function() {};
+	extendedinit = modula.extended.init = function() {
+	};
 
 
 	/**
