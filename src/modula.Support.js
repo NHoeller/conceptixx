@@ -17,6 +17,7 @@
 	/**
 	 * Support
 	 */
+	var
 	Support = Propertizer( "Support" , function( fn ) {
 		var div = doc.createElement( 'div' );
 		try {

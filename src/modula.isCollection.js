@@ -13,6 +13,7 @@
 	/**
 	 * check if subject is a valid modula node collection
 	 */
+	var
 	isCollection = function( obj ) {
 		var regex = new RegExp( "^\\[object (HTMLCollection|NodeList)\\]$" );
 		// if object is a HTMLCollection or a NodeList

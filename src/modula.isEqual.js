@@ -14,6 +14,7 @@
 	/**
 	 * isEqual function checks if 2 objects/arrays are (deep)equal
 	 */
+	var
 	isEqual = function( source , target ) {
 		var compare;
 		// if not 2 arguments were passed

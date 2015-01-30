@@ -13,6 +13,7 @@
 	/**
 	 * isBool
 	 */
+	var
 	isBool = function( value ) {
 		return typeof value === 'boolean';
 	};

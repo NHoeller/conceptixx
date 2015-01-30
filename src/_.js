@@ -66,7 +66,7 @@ var buildhandler = function() {
 
 
 /**
- *
+ * build function that takes the onload events
  */
 var build = function( builder , buildtext ) {
 //console.log( builder , buildtext);
@@ -78,15 +78,12 @@ var build = function( builder , buildtext ) {
 		var xhr = new XMLHttpRequest();
 		// set file
 		xhr.open( "GET" , nextElem , true );
-		//
-//		alert(xhr);
 		// set timeout
 		xhr.onload = function() {
 			var newbuilder = builder;
 			var newbuildtext = buildtext;
 			if (xhr.readyState == 4) { 
 				if (xhr.status == 200) {
-//					console.log(nextElem , xhr.responseText);
 					newbuildtext += xhr.responseText;
 					build( newbuilder , newbuildtext );
 				} else {
@@ -98,14 +95,11 @@ var build = function( builder , buildtext ) {
 		xhr.send( null );
 	} else {
 		// create html element
-		var z = document.createElement("pre");
-		z.innerHTML =buildtext;
-		document.getElementsByTagName( "div" )[ 0 ].appendChild( z )
 		var header = document.createElement( "script" );
 		header.type = "text/javascript";
 		header.id = "modula";
 		header.text = buildtext;
-		document.getElementsByTagName( "head" )[ 1 ].appendChild( header );
+		document.getElementsByTagName( "head" )[ 0 ].appendChild( header );
 	}
 		
 };

@@ -27,7 +27,8 @@ myFunc_2( myObject , "newValue" ); // result myObject { property : "newValue" }
 	/**
 	 * define 'simplify' function
 	 */
-	function simplify( f ) {
+	var
+	simplify = function( f ) {
 		var call = Function.call;
 	    return function () {
 	        return call.apply( f, arguments );

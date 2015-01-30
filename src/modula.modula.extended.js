@@ -15,8 +15,29 @@
 	/**
 	 * define modula.extended and it's prototype
 	 */
-	modula.extended = {};
+	modula.extended = {
+
+			version : version,
+			
+			constructor : modula,
+
+			uid : 'extended.modula.js' + 1 * Date.now(),
+
+	};
 	var
 	extended = modula.extended.prototype = {};
+
+
+	/**
+	 * define init for modula.extended
+	 */
+	var
+	extendedinit = modula.extended.init = function() {};
+
+
+	/**
+	 * bind prototype for further usage
+	 */
+	extendedinit.prototype = modula.extended;
 
 

@@ -18,6 +18,7 @@
 	/**
 	 * isNative checks for native functions
 	 */
+	var
 	isNative = function( fn ) {
 		var regex = new RegExp( "^[^{]*\\{\\s*\\[native \\w" );
 		return regex.test( fn );

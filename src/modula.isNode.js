@@ -17,6 +17,7 @@
 	/**
 	 * isNode function returns true if node, false otherwise
 	 */
+	var
 	isNode = function( obj ) {
 		return !!( obj && obj.nodeType );
 	};

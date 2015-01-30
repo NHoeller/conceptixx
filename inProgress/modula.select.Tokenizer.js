@@ -24,6 +24,7 @@
 	 * tokenize function extracts single selectors and
 	 * splits them to their elements and caches results
 	 */
+	var
 	Tokenizer = function(selector){
 		// if cached we are done
 		if( Cache.Tokenizer[ " "+selector ] ) { return Cache.Tokenizer[ " "+selector ]; };

@@ -13,6 +13,7 @@
 	/**
 	 * checks if an object is arraylike
 	 */
+	var
 	isArraylike = function( obj ) {
 		var len;
 		return (

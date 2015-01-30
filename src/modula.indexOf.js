@@ -15,6 +15,7 @@
 	 * indexOf (this is faster than the native one)
 	 * @see : http://jsperf.com/js-for-loop-vs-array-indexof/82
 	 */
+	var
 	indexOf = function( obj , elem ) {
 		var i , len = obj.length;
 		for( i = 0 ; i < len ; i++ ) {

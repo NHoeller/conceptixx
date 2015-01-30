@@ -19,6 +19,7 @@
 	 * combines 2 arraylike objects by adding the second one to the first
 	 * this effects only numeric indices. objects will added as reference
 	 */
+	var
 	combine = function( source , target ) {
 		// define some variables
 		var tlen = target.length , slen = source.length || 0 , i;

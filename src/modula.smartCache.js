@@ -20,6 +20,7 @@
 	/**
 	 * modulaCache (this is nearly the smallest cache possible)
 	 */
+	var
 	modulaCache = function() {
 		return function fn( name , content ) {
 			return ( content ? ( fn[name] = content ) : fn[name] );

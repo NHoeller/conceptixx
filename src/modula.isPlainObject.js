@@ -24,6 +24,7 @@
 	 * - DOM nodes
 	 * - window
 	 */
+	var
 	isPlainObject = function( obj ) {
 		// check for DOM node and window
 		if ( type( obj ) !== "Object" || obj.nodeType || isWindow( obj ) ) {

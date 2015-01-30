@@ -18,6 +18,7 @@
 	/**
 	 * checks for existance of all indeces
 	 */
+	var
 	containsAll = function( needle , target ) {
 		// define needle.length
 		var len = needle.length;

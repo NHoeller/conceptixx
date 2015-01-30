@@ -13,6 +13,7 @@
 	/**
 	 * isSibling function (child,child) checks if 2 nodes have the same parent
 	 */
+	var
 	isSibling = function( elem , sibling ) {
 		return elem.parentNode === sibling.parentNode;
 	};

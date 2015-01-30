@@ -13,6 +13,7 @@
 	/**
 	 * define regular expressions for selector engine
 	 */
+	var
 	Regex = Propertizer( "Regex" , {
 		// trim and escaping
 		trim : new RegExp( "^\\s*|\\s*$" , "g" ),

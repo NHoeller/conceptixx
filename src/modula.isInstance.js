@@ -13,6 +13,7 @@
 	/**
 	 * isInstance function checks for modula objects
 	 */
+	var
 	isInstance = function( obj , inst ) {
 		inst = inst||modula;
 		return ( obj instanceof inst );

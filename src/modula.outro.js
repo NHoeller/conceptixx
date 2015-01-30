@@ -24,5 +24,3 @@
 
 
 } )( window );
-
-alert("modula");

@@ -15,6 +15,10 @@
 	 * define some variables
 	 */
 	var
+	win = context && context.window && context.window === window ? context : window,
+	doc = win.document && win.document.nodeType === 9 && win.document || window.document,
+	root = doc.documentElement,
+	version = '1.01.001 prototype',
 	modulaCore;
 
 
@@ -24,10 +28,10 @@
 	 * @dependency : simplify
 	 */
 	var
-	// Arr = [],
-	push = simplify( Array.prototype.push ), // same as Arr.push
-	slice = simplify( Array.prototype.slice ), // same as Arr.slice
-	concat = simplify( Array.prototype.concat ); // same as Arr.concat
+	Arr = [], // nearly the same as Array.prototype, but Arr otherwise simplify works in window scope
+	push = simplify( Arr.push ),
+	slice = simplify( Arr.slice ),
+	concat = simplify( Arr.concat );
 
 
 	/**
@@ -36,9 +40,9 @@
 	 * @dependency : simplify
 	 */
 	var
-	// Obj = {},
-	toString = simplify( Object.prototype.toString ), // same as Obj.toString
-	hasOwnProperty = simplify( Object.prototype.hasOwnProperty ); // same as Obj.hasOwnProperty
+	Obj = {}, // nearly the same as Object.prototype, but Obj otherwise simplify works in window scope
+	toString = simplify( Obj.toString ),
+	hasOwnProperty = simplify( Obj );
 
 
 // --> insert src files here

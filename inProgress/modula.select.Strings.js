@@ -13,6 +13,7 @@
 	/**
 	 * define string expressions for the selector engine
 	 */
+	var
 	Strings = Propertizer( "Strings" , {
 		bools : "checked|selected|async|autofocus|autoplay|" +
 			"controls|defer|disabled|hidden|ismap|loop|" +

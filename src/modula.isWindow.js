@@ -14,6 +14,7 @@
 	/**
 	 * check if object is the window object
 	 */
+	var
 	isWindow = function( obj ) {
 		return !!obj && obj === obj.window;
 	};

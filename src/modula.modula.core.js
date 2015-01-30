@@ -14,8 +14,29 @@
 	/**
 	 * define modula.core and it's prototype
 	 */
-	modula.core = {};
+	modula.core = {
+
+			version : version,
+			
+			constructor : modula,
+
+			uid : 'modula.js' + 1 * Date.now(),
+
+	};
 	var
 	core = modula.core.prototype = {};
+
+
+	/**
+	 * define init for modula.core
+	 */
+	var
+	coreinit = modula.core.init = function() {};
+
+
+	/**
+	 * bind prototype for further usage
+	 */
+	coreinit.prototype = modula.core;
 
 

@@ -17,6 +17,7 @@
 	 * isScion function (child,parent) checks if child and parent are related to each other
 	 * returns boolean success or node if parent is nodelist
 	 */
+	var
 	isScion = function( child , parent ) {
 		var result;
 		while( ( child = child.parentNode ) ) {
