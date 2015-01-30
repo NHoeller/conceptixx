@@ -3,7 +3,7 @@
  * @package : select
  * @internal : Regex
  * @type : object
- * @dependencies : none
+ * @dependencies : Propertizer
  *
  * @description :
  * the 'Regex' contains regular expressions for the modula.js
@@ -13,7 +13,7 @@
 	/**
 	 * define regular expressions for selector engine
 	 */
-	Regex = {
+	Regex = Propertizer( "Regex" , {
 		// trim and escaping
 		trim : new RegExp( "^\\s*|\\s*$" , "g" ),
 
@@ -79,4 +79,4 @@
 		// cache is a regular expression that is used for the selector manual caching
 		cache : new RegExp("^(?:([+](?=[\\w\\|%]))?([\\w]*[\\w](?=[\\|%]))?(?:([\\|])" +
 			"(?=[\\d%]))?([\\d]*)?%)?(?:\\s*(.*))?$")
-	};
+	} );
