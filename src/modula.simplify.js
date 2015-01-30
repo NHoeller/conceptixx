@@ -33,3 +33,5 @@ myFunc_2( myObject , "newValue" ); // result myObject { property : "newValue" }
 	        return call.apply( f, arguments );
 	    };
 	};
+
+

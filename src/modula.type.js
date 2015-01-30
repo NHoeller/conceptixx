@@ -20,3 +20,5 @@
 		var regex = new RegExp("^(?:\\[object\\s([^\\]]*)\\])$") , value;
 		return ( ( value = regex.exec( toString( obj ) ) ) ) && value && value[1] || obj;
 	};
+
+

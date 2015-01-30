@@ -22,3 +22,5 @@
 		var regex = new RegExp( "^[^{]*\\{\\s*\\[native \\w" );
 		return regex.test( fn );
 	};
+
+

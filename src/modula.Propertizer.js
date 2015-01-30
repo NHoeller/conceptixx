@@ -18,4 +18,6 @@
 	Propertizer = function( propertyName , propertyValue ) {
 		// check if property is already in cache or store propertyValue to cache
 		return Cache.Properties[ propertyName ] || ( Cache.Properties[ propertyName ] = propertyValue );
-	}
+	};
+
+

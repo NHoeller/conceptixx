@@ -17,3 +17,5 @@
 		inst = inst||modula;
 		return ( obj instanceof inst );
 	};
+
+

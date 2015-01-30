@@ -28,8 +28,8 @@
 	push = simplify( Array.prototype.push ), // same as Arr.push
 	slice = simplify( Array.prototype.slice ), // same as Arr.slice
 	concat = simplify( Array.prototype.concat ); // same as Arr.concat
-   
-   
+
+
 	/**
 	 * define some Object functions
 	 *
@@ -42,3 +42,5 @@
 
 
 // --> insert src files here
+
+

@@ -19,7 +19,9 @@
 		if( !selector ) {
 			// return core object (basic functions)
 			return modulaCore || new modula.core.init();
-		}
+		};
 		// if we have a selector return extended object
 		return new modula.extended.init( selector , context );
 	};
+
+

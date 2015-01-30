@@ -17,3 +17,5 @@
 	isWindow = function( obj ) {
 		return !!obj && obj === obj.window;
 	};
+
+

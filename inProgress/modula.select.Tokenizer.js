@@ -76,7 +76,7 @@
 							// check for empty parts
 							if( group[ group.length - 1 ].length === 0 ) {
 								delete group[ ( group.length = group.length - 1 ) ];
-							}
+							};
 							// check for trailing combinators
 							if( group[ group.length - 1 ][ group[ group.length - 1 ].length - 1 ].type === "COMBINATOR" ) {
 								group.trail = true
@@ -265,3 +265,5 @@
 		return regexMatch;
 	};
 	// } );
+
+
