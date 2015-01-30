@@ -6,9 +6,9 @@
  * @dependencies : simplify
  *
  * @description :
- * modula intro is the basic start of the modula.js project
+ * define some variables and function
  */
-( function( context , undefined ) {
+// <-- insert source files here
 
 
 	/**

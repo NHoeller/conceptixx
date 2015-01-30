@@ -48,3 +48,10 @@
 	TokenizeCache = Cache( "Tokenize" );
 
 
+	/**
+	 * PropertyCache
+	 */
+	var
+	PropertyCache = Cache( "Properties" );
+
+
