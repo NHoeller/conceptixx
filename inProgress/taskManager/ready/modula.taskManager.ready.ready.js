@@ -20,6 +20,7 @@
 		/**
 		 * define ready function
 		 */
+		var
 		ready = function( listItem , eventHandler ) {
 			
 			//check readyList for state and completition
@@ -56,6 +57,7 @@ console.log("done");
 		/**
 		 * DOMevent
 		 */
+		var
 		DOMevent = function() {
 			// add eventHandler aswell as Fallback
 			document.addEventListener( "DOMContentLoaded" , completed , false );
@@ -64,6 +66,7 @@ console.log("done");
 		/**
 		 * 
 		 */
+		var
 		completed = function() {
 			// set isReady for DOMContentLoaded as true
 			isReady["DOMContentLoaded"] = true;

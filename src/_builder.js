@@ -38,20 +38,20 @@ var BUILDER =
 
 		"../src/modula.extend.js",
 
-		"../src/modula.modula.js",
-		"../src/modula.modula.core.js",
-		"../src/modula.modula.extended.js",
+		"../src/modula/modula.modula.js",
+		"../src/modula/modula.modula.core.js",
+		"../src/modula/modula.modula.extended.js",
 
-		"../src/modula.select.Strings.js",
-		"../src/modula.select.Regex.js",
-		"../src/modula.select.Tokenizer.js",
+		"../src/select/modula.select.Strings.js",
+		"../src/select/modula.select.Regex.js",
+		"../src/select/modula.select.Tokenizer.js",
 
-		"../inProgress/modula.taskManager.intro.js",
-		"../inProgress/modula.taskManager.ready.intro.js",
-		"../inProgress/modula.taskManager.ready.ready.js",
+		"../inProgress/taskManager/modula.taskManager.intro.js",
+		"../inProgress/taskManager/ready/modula.taskManager.ready.intro.js",
+		"../inProgress/taskManager/ready/modula.taskManager.ready.ready.js",
 
-		"../inProgress/modula.taskManager.ready.outro.js",
-		"../inProgress/modula.taskManager.outro.js",
+		"../inProgress/taskManager/ready/modula.taskManager.ready.outro.js",
+		"../inProgress/taskManager/modula.taskManager.outro.js",
 
 		"../src/modula.outro.js"
 	];
