@@ -17,9 +17,16 @@
 	var
 	win = context && context.window && context.window === window ? context : window,
 	doc = win.document && win.document.nodeType === 9 && win.document || window.document,
-	root = doc.documentElement,
+	root = doc.documentElement;
+
+
+	/**
+	 * define modula properties
+	 */
+	var
 	version = '1.01.001 prototype',
-	modulaCore;
+	self, // defines the modula core object
+	readyList = {}; // container for ready tasks
 
 
 	/**

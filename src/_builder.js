@@ -46,8 +46,12 @@ var BUILDER =
 		"../src/modula.select.Regex.js",
 		"../src/modula.select.Tokenizer.js",
 
-		"../inProgress/modula.ready.js",
-		"../inProgress/modula.taskManager.js",
+		"../inProgress/modula.taskManager.intro.js",
+		"../inProgress/modula.taskManager.ready.intro.js",
+		"../inProgress/modula.taskManager.ready.ready.js",
+
+		"../inProgress/modula.taskManager.ready.outro.js",
+		"../inProgress/modula.taskManager.outro.js",
 
 		"../src/modula.outro.js"
 	];

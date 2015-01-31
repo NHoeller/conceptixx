@@ -3,7 +3,7 @@
  * @package : core
  * @internal : taskManager
  * @type : constructor
- * @dependencies : Propertizer , extend
+ * @dependencies : Propertizer , readyList , extend
  *
  * @description :
  * the taskManager object is to control single tasks of the modula
@@ -66,37 +66,5 @@
 			},
 
 
-		};
-
-
-		/**
-		 * define prototype
-		 */
-		var
-		task = function( taskId , fn , args ) {
-			// return task function
-			return function() {
-				// check for current state
-				console.log(TaskCache[ taskId ]);
-			};
-		};
-
-
-		/**
-		 * return taskManager
-		 */
-		return taskManager;
-
-
-	} )();
-
-
-	/**
-	 * create default ready task for depends
-	 */
-	taskManager.create( modula() , 'ready' , undefined , 'ready' );
-
-
-	window.taskManager = taskManager;
-
+// --> ready modules
 
