@@ -12,3 +12,5 @@ src/_builder.js
 inProgress/_.js
 
 develop/*.*
+
+netBoot/*.*
