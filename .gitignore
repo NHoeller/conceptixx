@@ -7,10 +7,4 @@
 
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 
-src/_builder.js
-
-inProgress/_.js
-
-develop/*.*
-
-netBoot/*.*
+develop/
