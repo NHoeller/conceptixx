@@ -3,7 +3,7 @@
  * @package : core/taskManager
  * @internal : taskManager/ready.ready
  * @type : function
- * @dependencies : 
+ * @dependencies : isNode , isFunction
  *
  * @description :
  * ready is a function used to trigger the following 'ready' statements
@@ -18,11 +18,24 @@
 
 
 		/**
+		 * define readyTypes
+		 * 
+		 * @notice :
+		 * these values should be placed in the readyHandler itself, so there
+		 * are only that values defined, an handler depends to
+		 */
+		var readyTypes = {
+		// DOMContentLoaded : {},
+		// DEMANDContentLoaded : {},
+		// AJAXContentLoaded : {},
+		// CUSTOMReadyEvent : {},
+		};
+
+		/**
 		 * define ready function
 		 */
 		var
-		ready = function( listItem , eventHandler ) {
-			
+		ready = function( task ) {
 			//check readyList for state and completition
 			if( !readyList[ listItem ].completed && readyList[ listItem ].state === states.complete ) {
 				// check for tasks to run
@@ -62,7 +75,7 @@ console.log("done");
 			// add eventHandler aswell as Fallback
 			document.addEventListener( "DOMContentLoaded" , completed , false );
 			window.addEventListener( "load" , completed , false );
-		}
+		};
 		/**
 		 * 
 		 */

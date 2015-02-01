@@ -40,13 +40,3 @@
 
 	} )();
 
-
-	/**
-	 * create default ready task for depends
-	 */
-	taskManager.create( modula() , 'ready' , undefined , 'ready' );
-
-
-	window.taskManager = taskManager;
-
-

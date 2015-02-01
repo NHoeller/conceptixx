@@ -28,6 +28,7 @@ var BUILDER =
 		"../src/modula.isBool.js",
 		"../src/modula.isCollection.js",
 		"../src/modula.isEqual.js",
+		"../src/modula.isFunctions.js",
 		"../src/modula.isInstance.js",
 		"../src/modula.isNative.js",
 		"../src/modula.isNode.js",
@@ -48,11 +49,15 @@ var BUILDER =
 
 		"../inProgress/taskManager/modula.taskManager.intro.js",
 		"../inProgress/taskManager/ready/modula.taskManager.ready.intro.js",
-		"../inProgress/taskManager/ready/modula.taskManager.ready.ready.js",
 
+		"../inProgress/taskManager/ready/modula.taskManager.ready.ready.js",
+		"../inProgress/taskManager/ready/modula.taskManager.ready.DOMready.js",
+		
 		"../inProgress/taskManager/ready/modula.taskManager.ready.outro.js",
 		"../inProgress/taskManager/modula.taskManager.outro.js",
 
+		"../develop/_globalize.js",
+		
 		"../src/modula.outro.js"
 	];
 
@@ -84,7 +89,7 @@ var build = function( builder , buildtext ) {
 		// create new request
 		var xhr = new XMLHttpRequest();
 		// set file
-		xhr.open( "GET" , nextElem , true );
+		xhr.open( "GET" , nextElem + "?123" , true );
 		// set timeout
 		xhr.onload = function() {
 			var newbuilder = builder;
@@ -101,6 +106,8 @@ var build = function( builder , buildtext ) {
 		// send request
 		xhr.send( null );
 	} else {
+		// add to "pre" element
+		document.getElementsByTagName("pre")[0].innerHTML = buildtext;
 		// create html element
 		var header = document.createElement( "script" );
 		header.type = "text/javascript";
