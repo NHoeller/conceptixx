@@ -7,18 +7,8 @@
 
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 
-develop/_.js
+/develop/*
 
-develop/_builder.js
+/outdated/*
 
-develop/_globalize.js
-
-develop/index.html
-
-develop/index2.html
-
-develop/modula.js
-
-outdated/taskManager.ready.intro.js
-
-outdated/taskManager.ready.outro.js
+/dev/*
