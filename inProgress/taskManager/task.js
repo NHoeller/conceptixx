@@ -1,0 +1,117 @@
+/**
+ * @project : modula.js
+ * @package : core
+ * @internal : tasks.tasks
+ * @type : (constructor) function
+ * @dependencies : Propertizer
+ *
+ * @description :
+ * the modula adds a task object to each instance of itself
+ */
+
+
+		/**
+		 * define TasksHandler
+		 */
+		var
+		TasksHandler = {
+
+
+			/**
+			 * define create
+			 */	
+			create : function( modula , task ) {
+console.log( "tasks.create" , modula , task );
+				// if we have no task to transfer
+				if( !task ) {
+					// create new task object
+					task = Object.create( TasksHandler.executable );
+					// bind new PushStack entry
+					task.PushStack = PushStack.length;
+					// add entry to PushStack
+					PushStack.push( [] );
+					// bind new ReadyStates
+					task.ReadyStates = [];
+				};
+				// bind modula to the task
+				task.modula = modula;
+				// return the task
+				return task;
+			},
+
+
+			/**
+			 * define check
+			 */
+			check : function( task ) {
+console.log( "tasks.check" );
+				// define some variables
+				var entry;
+				// loop all PushStack entries for this task
+				while( ( entry = PushStack[ task.PushStack ][ 0 ] ) ) {
+					// if we have a executable
+					if( isFunction( entry ) ){
+						// call it with scope of this modula
+						entry.call( task , modula );
+					}
+					// if we have a ReadyState
+					else if( isFunction( entry[ 0 ] ) ) {
+						// if ReadyState is not complete we are done
+						if( entry[ 0 ]() !== UseStates.complete ) {
+							return task;
+						};
+					}
+					// if we have a function name and its args
+					else { 
+//console.log( entry[ 0 ] , entry[ 1 ] , task );
+						// call it with scope of this modula
+						task.modula[ entry[ 0 ] ].apply( task.modula , entry[ 1 ] );
+					};
+					shift( PushStack[ task.PushStack ] );
+				}
+				return task;
+			},
+
+
+			/**
+			 * executable
+			 */
+			executable : {
+
+
+				/**
+				 * define append
+				 */
+				append : function( func , args ) {
+console.log( "tasks.append" , this );				
+					// append task with given function
+					PushStack[ this.PushStack ].push( isFunction( func ) ? func : [ func , args] );
+					// return the task
+					return PushStack[ this.PushStack ].length > 1 ? this : tasks.check( this );
+				},
+
+
+				/**
+				 * define ready
+				 */
+				ready : function( type , args ) {
+console.log( "tasks.ready" );
+					// check for handler
+					if( ReadyHandler[ type ] ) {
+						// establish ready task of type 'type'
+						ReadyHandler[ type ].ready( this , type , args );
+					};
+					// return the task
+					return PushStack[ this.PushStack ].length > 1 ? this : tasks.check( this );
+				}	
+
+
+			}
+
+
+		};
+
+
+// <-- tasks
+
+
