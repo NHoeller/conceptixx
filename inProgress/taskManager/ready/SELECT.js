@@ -19,7 +19,7 @@
 
 
 		/**
-		 * add DOMContentLoaded as available ReadyHandler
+		 * add SELECT as available ReadyHandler
 		 */
 		ReadyHandler[ 'SELECT' ] = {
 
@@ -37,36 +37,51 @@
 				 */
 				if( task && task.ReadyStates[ 'SELECT' ] === undefined ) {
 console.log( "ready.add" );
-				};
+					// add readyTrigger to task's Stack
+					PushStack[ task.PushStack ].push( [ function(){ return task.ReadyStates[ 'SELECT' ]; } ] );
+					// set ReadyStates for SELECT ready
+					task.ReadyStates[ 'SELECT' ] = UseStates.progress;
+//				};
 
 				/**
-				 * check if we have already completed this ready check
+				 * add eventHandler if needed
 				 */
-				if( ready.state === UseStates.complete && ready.count >>> 0 > 0 ) {
-console.log( "ready.solve" );
-				};
-			};
-
-
-			/**
-			 * set SELECT.state to undefine (not used yet)
-			 */
-			state : UseStates.undefine,
+//				if( task && !task.trigger[ 'SELECT' ] ) {
+					// set eventHandler
+//					ready.addEvent( task );
+//				};
+//			};
 
 
 			/**
 			 * addEvent
 			 */
-			addEvent : function() {
+//			addEvent : function( task ) {
 
+				// define ready object
+//				var ready = ReadyHandler[ 'SELECT' ];
+
+				// check if we have already SELECT trigger on task
+//				if( !task.trigger[ 'SELECT' ] ) {
+					// bind SELECT to trigger;
+					task.trigger[ 'SELECT'] = true;
+				};
 			},
 
 
 			/**
 			 * completed
 			 */
-			completed : function() {
+			completed : function( task ) {
 
+				// define ready object
+				var ready = ReadyHandler[ 'SELECT' ];
+
+				// set state for SELECT as completed
+				task.ReadyStates[ 'SELECT' ] = UseStates.complete;
+
+				// we are done here - run ready()
+//				ready.ready( task );
 			},
 
 
