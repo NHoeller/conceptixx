@@ -22,7 +22,9 @@
 
 		uid : 'modula.js' + 1 * Date.now(),
 
-		extend : Propertizer( "extend" ),
+		extend : Propertizer( 'extend' ),
+
+		task : tasks.create(),
 
 	};
 	var
