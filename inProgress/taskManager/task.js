@@ -41,9 +41,9 @@ console.log( "tasks.create" , modula , task );
 
 
 			/**
-			 * define check
+			 * define resolve
 			 */
-			check : function( task ) {
+			resolve : function( task ) {
 console.log( "tasks.check" );
 				// define some variables
 				var entry;
@@ -87,7 +87,7 @@ console.log( "tasks.append" , this );
 					// append task with given function
 					PushStack[ this.PushStack ].push( isFunction( func ) ? func : [ func , args] );
 					// return the task
-					return PushStack[ this.PushStack ].length > 1 ? this : tasks.check( this );
+					return PushStack[ this.PushStack ].length > 1 ? this : tasks.resolve( this );
 				},
 
 
@@ -102,9 +102,18 @@ console.log( "tasks.ready" );
 						ReadyHandler[ type ].ready( this , type , args );
 					};
 					// return the task
-					return PushStack[ this.PushStack ].length > 1 ? this : tasks.check( this );
+					return PushStack[ this.PushStack ].length > 1 ? this : tasks.resolve( this );
 				}	
 
+
+				/**
+				 * define completed
+				 */
+				completed : function() {
+console.log( "tasks.completed" );
+					// return if task is currently ready or waiting
+					return PushStack[ this.PushStack ].length > 0;
+				}
 
 			}
 
