@@ -55,7 +55,7 @@ console.log( "ready.solve" );
 						// set readyState as complete for this task
 						task.ReadyStates[ 'DOM' ] = UseStates.complete; 
 						// execute task
-						tasks.check( task ); 
+						tasks.resolve( task ); 
 						// delete ready[ i ] in fact of execution and increase counter
 						delete ready[ i++ ];
 					};
