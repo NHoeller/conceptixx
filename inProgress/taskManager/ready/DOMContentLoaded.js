@@ -11,6 +11,7 @@
  * - DEMAND
  * - AJAX
  * - CUSTOM
+ * - SELECT
  * 
  * the DOM is always implemented, the other ready statements
  * should be implemented by the 'conceptixx - modula.php'  
@@ -18,13 +19,18 @@
 
 
 		/**
-		 * add DOMContentLoaded as available ReadyHandler
+		 * add DOM as available ReadyHandler
 		 */
-		ReadyHandler['DOM'] = {
+		ReadyHandler[ 'DOM' ] = {
+
+
+			/**
+			 * define ready
+			 */
 			ready : function( task , type ) {
 
 				// define ready object
-				var ready = ReadyHandler['DOM']
+				var ready = ReadyHandler[ 'DOM' ];
 
 				/**
 				 * if we have a not ready task
@@ -66,7 +72,7 @@ console.log( "ready.solve" );
 				};
 
 				/**
-				 * check the DOMContentLoaded so we catch cases were ready is called after ready
+				 * add eventHandler if needed
 				 */
 				if( ready.state === UseStates.undefine ) {
 					// set eventHandler
@@ -74,7 +80,7 @@ console.log( "ready.solve" );
 				};
 
 				/**
-				 * if we have completed the eventHandler but not state complete
+				 * if we have completed the ready event
 				 */
 				if( ready.state === UseStates.complete ) {
 					// use a timeout to handle this
@@ -99,10 +105,10 @@ console.log( "ready.solve" );
 			 */
 			addEvent : function() {
 				// define ready object
-				var ready = ReadyHandler['DOM']
+				var ready = ReadyHandler[ 'DOM' ]
 				// add eventHandler aswell as Fallback
-				document.addEventListener( "DOMContentLoaded" , ready.completed , false );
-				window.addEventListener( "load" , ready.completed , false );
+				document.addEventListener( 'DOMContentLoaded' , ready.completed , false );
+				window.addEventListener( 'load' , ready.completed , false );
 				// set ready.state as progress
 				ready.state = UseStates.progress;
 			},
@@ -113,12 +119,12 @@ console.log( "ready.solve" );
 			 */
 			completed : function() {
 				// define ready object
-				var ready = ReadyHandler['DOM']
+				var ready = ReadyHandler[ 'DOM' ]
 				// check if we have set eventHandler
 				if( ready.state === UseStates.progress ) {
 					// remove eventHandler
-					document.removeEventListener( "DOMContentLoaded" , ready.completed , false );
-					window.removeEventListener( "load" , ready.completed , false );
+					document.removeEventListener( 'DOMContentLoaded' , ready.completed , false );
+					window.removeEventListener( 'load' , ready.completed , false );
 					// set ready.state as complete
 					ready.state = UseStates.complete;
 					// re-run the ready fuction
