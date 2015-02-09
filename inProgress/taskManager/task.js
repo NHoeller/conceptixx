@@ -103,7 +103,22 @@ console.log( "tasks.ready" );
 					};
 					// return the task
 					return PushStack[ this.PushStack ].length > 1 ? this : tasks.resolve( this );
-				}	
+				},	
+
+
+				/**
+				 * define trigger
+				 */
+				trigger : function( type , args ) {
+
+					// check for bound triggers
+					if( this.trigger[ type ] ) {
+						// complete trigger with given args
+						ReadyHandler[ type ].completed( this , args );
+					};
+					// return the task
+					return PushStack[ this.PushStack ].length > 1 ? this : tasks.resolve( this );
+				},
 
 
 				/**
