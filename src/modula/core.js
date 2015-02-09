@@ -24,7 +24,7 @@
 
 		extend : Propertizer( 'extend' ),
 
-		task : tasks.create(),
+//		task : tasks.create(),
 
 	};
 	var

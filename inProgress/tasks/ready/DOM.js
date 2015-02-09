@@ -7,10 +7,10 @@
  *
  * @description :
  * ready is used to trigger the following 'ready' statements
- * - DOM
- * - DEMAND
  * - AJAX
  * - CUSTOM
+ * - DEMAND
+ * - DOM
  * - SELECT
  * 
  * the DOM is always implemented, the other ready statements
@@ -28,30 +28,25 @@
 			 * define ready
 			 */
 			ready : function( task , type ) {
-
 				// define ready object
-				var ready = ReadyHandler[ 'DOM' ];
-
+				var ready = ReadyHandler[ type ];
 				/**
 				 * if we have a not ready task
 				 */
-				if( task && task.ReadyStates[ 'DOM' ] === undefined ) {
-console.log( "ready.add" );
+				if( task && task.ReadyStates[ type ] === undefined ) {
 					// add task's PushStack to ready for completition
 					ready[ ( ready.count = ready.count >>> 0 ) ] = task;
 					// add readyTrigger to task's Stack
-					PushStack[ task.PushStack ].push( [ function(){ return task.ReadyStates[ 'DOM' ]; } ] );
+					PushStack[ task.PushStack ].push( [ function(){ return task.ReadyStates[ type ]; } ] );
 					// set ReadyStates for DOM ready
-					task.ReadyStates[ 'DOM' ] = UseStates.progress;
+					task.ReadyStates[ type ] = UseStates.progress;
 					// increase count for next turn
 					ready.count++;
 				};
-
 				/**
 				 * check if we have already completed this ready check
 				 */
 				if( document.readyState === UseStates.complete && ready.count >>> 0 > 0 ) {
-console.log( "ready.solve" );
 					// define some variables
 					var i = 0 , task;
 					// loop the counts
@@ -59,7 +54,7 @@ console.log( "ready.solve" );
 						// get task from ready[ i ]
 						task = ready[ i ];
 						// set readyState as complete for this task
-						task.ReadyStates[ 'DOM' ] = UseStates.complete; 
+						task.ReadyStates[ type ] = UseStates.complete; 
 						// execute task
 						tasks.resolve( task ); 
 						// delete ready[ i ] in fact of execution and increase counter
@@ -70,7 +65,6 @@ console.log( "ready.solve" );
 					// we are done sucessfully
 					return true;
 				};
-
 				/**
 				 * add eventHandler if needed
 				 */
@@ -78,7 +72,6 @@ console.log( "ready.solve" );
 					// set eventHandler
 					ready.addEvent();
 				};
-
 				/**
 				 * if we have completed the ready event
 				 */
@@ -86,7 +79,6 @@ console.log( "ready.solve" );
 					// use a timeout to handle this
 					window.setTimeout( ready.ready );
 				}
-
 				/**
 				 * return false when ready check has not been completed
 				 */
@@ -105,7 +97,7 @@ console.log( "ready.solve" );
 			 */
 			addEvent : function() {
 				// define ready object
-				var ready = ReadyHandler[ 'DOM' ]
+				var ready = ReadyHandler[ type ]
 				// add eventHandler aswell as Fallback
 				document.addEventListener( 'DOMContentLoaded' , ready.completed , false );
 				window.addEventListener( 'load' , ready.completed , false );
@@ -119,7 +111,7 @@ console.log( "ready.solve" );
 			 */
 			completed : function() {
 				// define ready object
-				var ready = ReadyHandler[ 'DOM' ]
+				var ready = ReadyHandler[ type ]
 				// check if we have set eventHandler
 				if( ready.state === UseStates.progress ) {
 					// remove eventHandler
@@ -130,7 +122,7 @@ console.log( "ready.solve" );
 					// re-run the ready fuction
 					ready.ready();
 				};
-			},
+			}
 
 
 		};

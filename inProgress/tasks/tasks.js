@@ -19,9 +19,8 @@
 
 			/**
 			 * define create
-			 */	
+			 */
 			create : function( modula , task ) {
-console.log( "tasks.create" , modula , task );
 				// if we have no task to transfer
 				if( !task ) {
 					// create new task object
@@ -44,7 +43,6 @@ console.log( "tasks.create" , modula , task );
 			 * define resolve
 			 */
 			resolve : function( task ) {
-console.log( "tasks.check" );
 				// define some variables
 				var entry;
 				// loop all PushStack entries for this task
@@ -63,7 +61,6 @@ console.log( "tasks.check" );
 					}
 					// if we have a function name and its args
 					else { 
-//console.log( entry[ 0 ] , entry[ 1 ] , task );
 						// call it with scope of this modula
 						task.modula[ entry[ 0 ] ].apply( task.modula , entry[ 1 ] );
 					};
@@ -83,7 +80,7 @@ console.log( "tasks.check" );
 				 * define append
 				 */
 				append : function( func , args ) {
-console.log( "tasks.append" , this );				
+console.log( "tasks.append" , func , args );
 					// append task with given function
 					PushStack[ this.PushStack ].push( isFunction( func ) ? func : [ func , args] );
 					// return the task
@@ -92,10 +89,26 @@ console.log( "tasks.append" , this );
 
 
 				/**
+				 * define remove
+				 */
+				remove : function( deleteAll ) {
+					if( PushStack[ this.PushStack ].length === 0 ) { return this; }
+					// so delete only the last entry
+					delete PushStack[ this.PushStack ][ PushStack[ this.PushStack ].length - 1 ];
+					// if PushStack has to be emptied
+					if( deleteAll ) {
+						// reset PushStack
+						PushStack[ this.PushStack ] = [];
+					};
+					// return task
+					return this;
+				},
+
+				/**
 				 * define ready
 				 */
 				ready : function( type , args ) {
-console.log( "tasks.ready" );
+console.log( "tasks.ready" , type , args );
 					// check for handler
 					if( ReadyHandler[ type ] ) {
 						// establish ready task of type 'type'
@@ -110,14 +123,18 @@ console.log( "tasks.ready" );
 				 * define trigger
 				 */
 				trigger : function( type , args ) {
-console.log( "tasks.trigger" );
 					// check for bound triggers
 					if( this.trigger[ type ] ) {
+						// check for args
+						if( args && !this.trigger[ type ][ args ] ) {
+							// return task if not bound to task's trigger
+							return this;
+						};
 						// complete trigger with given args
 						ReadyHandler[ type ].completed( this , args );
 					};
 					// return the task
-					return PushStack[ this.PushStack ].length > 1 ? this : tasks.resolve( this );
+					return this;
 				},
 
 
@@ -125,7 +142,6 @@ console.log( "tasks.trigger" );
 				 * define completed
 				 */
 				completed : function() {
-console.log( "tasks.completed" );
 					// return if task is currently ready or waiting
 					return PushStack[ this.PushStack ].length > 0;
 				}
