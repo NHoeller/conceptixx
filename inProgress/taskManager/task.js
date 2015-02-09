@@ -110,7 +110,7 @@ console.log( "tasks.ready" );
 				 * define trigger
 				 */
 				trigger : function( type , args ) {
-
+console.log( "tasks.trigger" );
 					// check for bound triggers
 					if( this.trigger[ type ] ) {
 						// complete trigger with given args
