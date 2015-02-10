@@ -109,7 +109,7 @@
 			/**
 			 * completed
 			 */
-			completed : function() {
+			completed : function( task , type , args ) {
 				// define ready object
 				var ready = ReadyHandler[ 'DOM' ]
 				// check if we have set eventHandler
