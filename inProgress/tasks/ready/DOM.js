@@ -55,8 +55,8 @@
 						task = ready[ i ];
 						// set readyState as complete for this task
 						task.ReadyStates[ type ] = UseStates.complete; 
-						// execute task
-						tasks.resolve( task ); 
+						// execute task by setting timeout
+						window.setTimeout( function() { tasks.resolve( task ); } ); 
 						// delete ready[ i ] in fact of execution and increase counter
 						delete ready[ i++ ];
 					};
