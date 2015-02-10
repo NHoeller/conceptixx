@@ -52,8 +52,8 @@
 				var ready = ReadyHandler[ type ];
 				// set state for SELECT as completed
 				task.ReadyStates[ type ] = UseStates.complete;
-				// execute task
-				tasks.resolve( task ); 
+				// execute task by setting timeout
+				window.setTimeout( function() { tasks.resolve( task ); } ); 
 			}
 
 
