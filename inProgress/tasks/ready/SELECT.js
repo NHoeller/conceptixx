@@ -49,9 +49,9 @@
 			 */
 			completed : function( task ) {
 				// define ready object
-				var ready = ReadyHandler[ type ];
+				var ready = ReadyHandler[ 'SELECT' ];
 				// set state for SELECT as completed
-				task.ReadyStates[ type ] = UseStates.complete;
+				task.ReadyStates[ 'SELECT' ] = UseStates.complete;
 				// execute task by setting timeout
 				window.setTimeout( function() { tasks.resolve( task ); } ); 
 			}
