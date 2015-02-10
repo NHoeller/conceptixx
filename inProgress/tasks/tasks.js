@@ -131,7 +131,7 @@ console.log( "tasks.ready" , type , args );
 							return this;
 						};
 						// complete trigger with given args
-						ReadyHandler[ type ].completed( this , args );
+						ReadyHandler[ type ].completed( this , type , args );
 					};
 					// return the task
 					return this;
