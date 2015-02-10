@@ -97,7 +97,7 @@
 			 */
 			addEvent : function() {
 				// define ready object
-				var ready = ReadyHandler[ type ]
+				var ready = ReadyHandler[ 'DOM' ]
 				// add eventHandler aswell as Fallback
 				document.addEventListener( 'DOMContentLoaded' , ready.completed , false );
 				window.addEventListener( 'load' , ready.completed , false );
@@ -111,7 +111,7 @@
 			 */
 			completed : function() {
 				// define ready object
-				var ready = ReadyHandler[ type ]
+				var ready = ReadyHandler[ 'DOM' ]
 				// check if we have set eventHandler
 				if( ready.state === UseStates.progress ) {
 					// remove eventHandler
