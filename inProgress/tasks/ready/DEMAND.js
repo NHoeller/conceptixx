@@ -43,7 +43,7 @@ console.log( task , type , args , last( PushStack[ task.PushStack ] ) );
 				/**
 				 * if we have a not ready task
 				 */
-				if( task && !task.ReadyStates[ type ][ args[ 0 ] ] ) {
+				if( task && !task.ReadyStates[ type ][ ' '+args[ 0 ] ] ) {
 					// add task to ready for completition
 					ready[ ' '+args[ 0 ] ][ ready[ ' '+args[ 0 ] ].count ] = task;
 					// increase count for next turn
@@ -53,9 +53,9 @@ console.log( task , type , args , last( PushStack[ task.PushStack ] ) );
 					if( last( PushStack[ task.PushStack ] ) === args[ 1 ] ) { task.remove(); }
 
 					// add readyTrigger to task's Stack
-					PushStack[ task.PushStack ].push( [ function(){ return task.ReadyStates[ type ][ args[ 0 ] ]; } ] );
+					PushStack[ task.PushStack ].push( [ function(){ return task.ReadyStates[ type ][ ' '+args[ 0 ] ]; } ] );
 					// set ReadyStates for DEMAND ready
-					task.ReadyStates[ type ][ args[ 0 ] ] = UseStates.progress;
+					task.ReadyStates[ type ][ ' '+args[ 0 ] ] = UseStates.progress;
 					// bind DEMAND to trigger;
 					task.trigger[ type ] = true;
 					// add function to task (if set)
@@ -67,9 +67,9 @@ console.log( task , type , args , last( PushStack[ task.PushStack ] ) );
 			/**
 			 * define completed
 			 */
-			completed : function( task , args ) {
+			completed : function(  _task , type , args  ) {
 				// define ready object
-				var ready = ReadyHandler[ 'DEMAND' ];
+				var ready = ReadyHandler[ type ];
 				// define some variables
 				var i = 0 , task;
 				// loop the counts
@@ -77,7 +77,7 @@ console.log( task , type , args , last( PushStack[ task.PushStack ] ) );
 					// get task from ready[ i ]
 					task = ready[ ' '+args ][ i ];
 					// set readyState as complete for this task
-					task.ReadyStates[ 'DEMAND' ] = UseStates.complete; 
+					task.ReadyStates[ type ][ ' '+args ] = UseStates.complete; 
 					// execute task by setting timeout
 					window.setTimeout( function() { tasks.resolve( task ); } ); 
 					// delete ready[ i ] in fact of execution and increase counter
