@@ -47,11 +47,11 @@
 			/**
 			 * completed
 			 */
-			completed : function( task ) {
+			completed : function( task , type , args ) {
 				// define ready object
-				var ready = ReadyHandler[ 'SELECT' ];
+				var ready = ReadyHandler[ type ];
 				// set state for SELECT as completed
-				task.ReadyStates[ 'SELECT' ] = UseStates.complete;
+				task.ReadyStates[ type ] = UseStates.complete;
 				// execute task by setting timeout
 				window.setTimeout( function() { tasks.resolve( task ); } ); 
 			}
