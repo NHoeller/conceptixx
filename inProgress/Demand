@@ -1,0 +1,71 @@
+/**
+ * @project : modula.js
+ * @package : init
+ * @internal : Demand
+ * @type : constructor / function
+ * @dependencies : none
+ *
+ * @description :
+ * Demand is the initializing constructor for the modula so we have only a minimum to load
+ * with the (only) first script tag
+ *
+ * @example
+ * <[ script type='text/javascript' src='Demand.js' data-demand='{filled_with_individual_demands_hash}' ]><[ /script ]>
+ */
+ 
+ 
+	/**
+	 * run anonymous function(s)
+	 */
+	( function( context , undefined ) {
+
+
+		/**
+		 * define bubble for Demand to work with
+		 */
+		var
+		bubble = {};
+
+
+		/**
+		 * define Demand
+		 */
+		var
+		Demand = ( function( context , undefined ) {
+			// insert something
+		} )( context );
+
+
+		/**
+		 * define a modula
+		 */
+		var
+		modula = function() {
+			// placeholder
+			// return object
+			return Modula;
+		};
+
+
+		/**
+		 * set modula to context
+		 */
+		context.modula = modula;
+
+
+		/**
+		 * prefill a Modula
+		 */
+		var
+		Modula = {};
+		Demand.setFunction(
+			'funcA,funcB,funcC'.split( ',' ) ,
+			function() {
+				// placeholder
+			}
+		);
+
+
+	} )( window );
+
+
