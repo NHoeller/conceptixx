@@ -1,7 +1,7 @@
 /**
  * @project : modula.js
  * @package : core
- * @internal : tasks.ready.DOM
+ * @internal : tasks.ready.dom
  * @type : function
  * @dependencies : 
  *
@@ -27,7 +27,7 @@
 			/**
 			 * define ready
 			 */
-			ready : function( task , type ) {
+			ready : function( task , type /* , args */ ) {
 				// define ready object
 				var ready = ReadyHandler[ type ];
 				/**
@@ -95,7 +95,7 @@
 			/**
 			 * addEvent
 			 */
-			addEvent : function() {
+			addEvent : function( /* task , type , args */ ) {
 				// define ready object
 				var ready = ReadyHandler[ 'DOM' ]
 				// add eventHandler aswell as Fallback
@@ -109,7 +109,7 @@
 			/**
 			 * completed
 			 */
-			completed : function( task , type , args ) {
+			completed : function( /* task , type , args */ ) {
 				// define ready object
 				var ready = ReadyHandler[ 'DOM' ]
 				// check if we have set eventHandler

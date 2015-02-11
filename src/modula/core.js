@@ -27,6 +27,17 @@
 //		task : tasks.create(),
 
 	};
+
+
+	/**
+	 * define enhanced core
+	 */
+	var enhanced = {	
+	}
+
+	/**
+	 * define core
+	 */
 	var
 	core = modula.core.prototype = {};
 

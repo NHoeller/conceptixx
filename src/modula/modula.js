@@ -20,8 +20,8 @@
 			// return core object (basic functions)
 			return self || new modula.core.init();
 		};
-		// if we have a selector return extended object
-		return new modula.extended.init( selector , context );
+		// if we have a selector return core object ( with enhanced functions)
+		return new modula.core.init( selector , context );
 	};
 
 

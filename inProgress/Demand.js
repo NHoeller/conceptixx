@@ -21,10 +21,10 @@
 
 
 		/**
-		 * define bubble for Demand to work with
+		 * define instances for Demand to work with
 		 */
 		var
-		bubble = {};
+		instances = {};
 
 
 		/**
@@ -36,12 +36,7 @@
 			 * define Demand
 			 */
 			var
-			Demand = function() {
-			};
-			/**
-			 * define prototype
-			 */
-			Demand.prototype = {
+			Demand = {
 				/**
 				 * setFunction
 				 */

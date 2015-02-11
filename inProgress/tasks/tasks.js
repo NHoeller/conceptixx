@@ -72,6 +72,8 @@
 
 			/**
 			 * executable
+			 * all methods of 'executable' are bound to the tasks
+			 * so we work with the 'this' statement
 			 */
 			executable : {
 
@@ -80,7 +82,6 @@
 				 * define append
 				 */
 				append : function( func , args ) {
-console.log( "tasks.append" , func , args );
 					// append task with given function
 					PushStack[ this.PushStack ].push( isFunction( func ) ? func : [ func , args] );
 					// return the task
@@ -108,7 +109,6 @@ console.log( "tasks.append" , func , args );
 				 * define ready
 				 */
 				ready : function( type , args ) {
-console.log( "tasks.ready" , type , args );
 					// check for handler
 					if( ReadyHandler[ type ] ) {
 						// establish ready task of type 'type'

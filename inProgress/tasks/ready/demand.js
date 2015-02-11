@@ -1,7 +1,7 @@
 /**
  * @project : modula.js
  * @package : core
- * @internal : DEMAND
+ * @internal : tasks.ready.demand
  * @type : function
  * @dependencies : 
  *

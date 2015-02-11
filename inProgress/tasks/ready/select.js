@@ -1,7 +1,7 @@
 /**
  * @project : modula.js
  * @package : core
- * @internal : tasks.ready.SELECT
+ * @internal : tasks.ready.select
  * @type : function
  * @dependencies :
  *
@@ -27,7 +27,7 @@
 			/**
 			 * define ready
 			 */
-			ready : function( task , type ) {
+			ready : function( task , type /* , args */ ) {
 				// define ready object
 				var ready = ReadyHandler[ type ];
 				/**
