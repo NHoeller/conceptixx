@@ -32,7 +32,36 @@
 		 */
 		var
 		Demand = ( function( context , undefined ) {
-			// insert something
+			/**
+			 * define Demand
+			 */
+			var
+			Demand = function() {
+			};
+			/**
+			 * define prototype
+			 */
+			Demand.prototype = {
+				/**
+				 * setFunction
+				 */
+				setFunction : function( modula , functions ) {
+					// loop all function names
+					for( var i = 0 , l = functions.length ; i < l ; i++ ) {
+						// add placeholder function
+						modula[ functions[ i ] ] = function() {
+							// until placeholder is replaced use tasks
+							this.task.append( functions[ i ] , arguments );
+							// return object for chaining
+							return this;
+						};
+					};
+				}
+			};
+			/**
+			 * return Demand
+			 */
+			return Demand;
 		} )( context );
 
 
@@ -41,9 +70,10 @@
 		 */
 		var
 		modula = function() {
-			// placeholder
-			// return object
-			return Modula;
+			// placeholder (get loading file)
+			// build and return object
+			var newObject = Object.create( Modula );
+			newObject.task = tasks.ready( 'demand' , loadFile ).append( 'modula' , arguments ); 
 		};
 
 
@@ -59,10 +89,8 @@
 		var
 		Modula = {};
 		Demand.setFunction(
-			'funcA,funcB,funcC'.split( ',' ) ,
-			function() {
-				// placeholder
-			}
+			Modula , 
+			'funcA,funcB,funcC'.split( ',' )
 		);
 
 
