@@ -56,7 +56,7 @@
 		 */
 		var
 		Defaults = {
-			type : 'GET',
+			method : 'GET',
 			protocol : window.location.protocol === 'https:' ? 'https' : 'http:',
 			cached : false,
 			async : true,
@@ -67,7 +67,10 @@
 				'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
 			},
 			timeout : 0,
-			override : 'text/html'
+			override : 'text/html',
+			user : '',
+			password : '',
+			multipart : false,
 		};
 
 
