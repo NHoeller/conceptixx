@@ -40,7 +40,36 @@
 			}
 		};
 
-		
+
+		/**
+		 * define XHRsend
+		 */
+		var
+		XHRsend = function(  ) {
+			
+		};
+
+
+		/**
+		 * define XHRopen
+		 */
+		var
+		XHRopen = function( modulaXHR , XHRMethod , XHRUrl , XHRAsync , XHRUser , XHRPassword ) {
+			// define some variables
+			var
+			method = XHRMethod || Defaults.method;
+			useUrl = XHRUrlCheck( XHRUrl);
+			useAsync = XHRAsync || Defaults.async;
+			useUser = XHRUser || Defaults.user;
+			usePassword = XHRPassword || Defaults.password;
+			if( !useUrl ) {
+				throw new Error( 'no valid url : '+XHRUrl );
+			};
+			// open request with parameters
+			modulaXHR.open( method , useUrl , useAsync , useUser , usePassword );
+		};
+
+
 		/**
 		 * define createRequest
 		 */
