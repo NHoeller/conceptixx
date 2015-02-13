@@ -13,6 +13,6 @@
 	/**
 	 * init modula by an anonymous function
 	 */
-	( function() {
+	( function( context ) {
 
 
