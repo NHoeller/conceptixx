@@ -10,6 +10,6 @@
  */
 
 
-	)( window , undefined );
+	)( window );
 
 

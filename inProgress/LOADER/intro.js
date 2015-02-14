@@ -13,6 +13,12 @@
 	/**
 	 * init modula by an anonymous function
 	 */
-	( function( context ) {
+	( function( context , undefined ) {
+
+
+		/**
+		 * define use strict
+		 */
+		"use strict";
 
 

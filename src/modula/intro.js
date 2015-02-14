@@ -11,6 +11,9 @@
 ( function( context , undefined ) {
 
 
+	/**
+	 * define use strict
+	 */
 	"use strict";
 
 

@@ -24,7 +24,18 @@
 		 * define instances for Demand to work with
 		 */
 		var
-		instances = {};
+		instances = {
+
+
+			/**
+			 * define Support
+			 */
+			Support : function() {
+				
+			}
+
+
+		};
 
 
 		/**

@@ -52,25 +52,27 @@
 
 
 		/**
-		 * define Defaults
+		 * define XHRDefaults
 		 */
-		var
-		Defaults = {
-			method : 'GET',
+		Defaults.XHR = {
+			// url : (must be defined by function)
+			method : 'POST',
 			protocol : window.location.protocol === 'https:' ? 'https' : 'http:',
-			cached : false,
+			cache : false,
 			async : true,
-			mimeType : MimeTypes.html,
 			responseType : 'html',
-			responseField: ResponseFields.html,
-			header : {
-				'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+			requestHeader : {
+				'Accept' : 'text/xml',
+				'Accept-Charset' : 'UTF-8',
+				'Content-Type' : 'application/x-www-form-urlencoded',
+				
 			},
 			timeout : 0,
-			override : 'text/html',
+			override : 'text/xml',
 			user : '',
 			password : '',
 			multipart : false,
+			sendData : null,
 		};
 
 
