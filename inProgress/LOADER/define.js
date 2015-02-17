@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
  * @package : loader
- * @internal : loader.intro
- * @type : constructor
- * @dependencies : none
+ * @internal : loader.define
+ * @type : script
+ * @dependencies : XHR , URL
  *
  * @description :
  * the main part of the modula is a self extending loader object
@@ -77,6 +77,19 @@
 		 * *************************************************************************** */
 
 
+
+		
+		/**
+		 * define inject (ONLY INTERNAL)
+		 * this method will be overwritten by essentials
+		 */
+		inject : function( XHRResponse ) {
+			// define variables
+			var
+			indirect = eval;
+			// execute XHRResponse
+			indirect( XHRResponse );
+		},
 		/**
 		 * define modulaURL
 		 */
@@ -181,7 +194,6 @@
 						// add anchor if ommited
 						if( match[ 8 ] ) { result.anchor = match[ 8 ]; };
 					};
-console.log( 'URL.create' , match , result );
 					// done here
 					return result;
 				},
@@ -358,6 +370,17 @@ console.log( 'URL.create' , match , result );
 				send : function( XHRSendData ) {
 					// define variables
 					var XHRSendData = XHRSendData || this.parameter.sendData || Defaults.XHR.sendData;
+					// if we have a sendData object
+					if( XHRSendData ) {
+						var sendData = '';
+						// loop the datafields
+						for( var data in XHRSendData ) {
+							// add datafield and its value
+							sendData += '&' + data + '=' + XHRSendData[ data ];
+						};
+						// store the result to XHRSendData
+						XHRSendData = sendData.substring( 1 );
+					};
 					// send request with parameter
 					this.request.send( XHRSendData );
 					// we are done
@@ -374,6 +397,6 @@ console.log( 'URL.create' , match , result );
 		/*
 		 * create ajax request for essentials
 		 */
-		var XHRModula = modulaXHR.request( XHRParameter ).open().header().send( XHRParameter );
+		var XHRModula = modulaXHR.request( XHRParameter ).open().header().send();
 		
 

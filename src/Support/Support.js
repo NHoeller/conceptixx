@@ -2,15 +2,15 @@
  * @project : modula.js
  * @package : core
  * @internal : Support.Support
- * @type : function (object)
- * @dependencies :	functions.Propertizer
+ * @type : function
+ * @dependencies :	none
  *
  * @description :
- * the Support is used to build crossbrowser compatible modula.js
- * functions. the results will be stored to the Support-object
+ * the Support is used to build crossbrowser compatible modula.js functions.
  * 
  * @example
  * Support.test = Support( function() { return true; } ); // result Support.test = true
+ * Support.test = Support( function() { return false; } ); // result Support.test = false
  */
 
 
@@ -18,7 +18,7 @@
 	 * Support
 	 */
 	var
-	Support = Propertizer( "Support" , function( fn ) {
+	Support = function( fn ) {
 		// create div element
 		var div = doc.createElement( 'div' );
 		// try to ...
@@ -36,6 +36,6 @@
 			// delete div for memory release
 			div = null;
 		};
-	} );
+	};
 
 

@@ -1,9 +1,10 @@
 /**
  * @project : modula.js
- * @package : loader
- * @internal : loader.intro
+ * @package : core
+ * @internal : define.intro
  * @type : constructor
- * @dependencies : none
+ * @dependencies :	functions.isString
+ * 					define.object
  *
  * @description :
  * the main part of the modula is a self extending loader object
@@ -21,4 +22,31 @@
 		 */
 		"use strict";
 
+
+		/**
+		 * define container for modula constructors
+		 */
+		var
+		Constructors = {};
+
+
+		/**
+		 * define Container for Defaults
+		 */
+		var
+		Defaults = Propertizer( "Defaults" , {} );
+
+
+		/**
+		 * define container for modula prototypes
+		 */
+		var
+		Prototypes = {};
+
+
+		/**
+		 * define Container for regular expressions
+		 */
+		var
+		RegularExpressions = Propertizer( "RegularExpressions" , {} );
 

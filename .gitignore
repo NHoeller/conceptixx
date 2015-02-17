@@ -13,6 +13,10 @@
 
 /dev/*
 
-modulajs.php
+modula.php
 
 index.php
+
+index.html
+
+/src/.map
