@@ -15,7 +15,7 @@
 		/**
 		 * newTag matches new html/xml tags and their attributes
 		 */
-		// alternative Defaults( 'RegularExpressions' )( 'Selector' )[ 'newTag' ] = ...'
+		// alternative Defaults( 'RegularExpressions' )( 'Selector' )( 'newTag' , new ... );'
 		Regex[ 'Selector' ].newTag = new RegExp( "^\\<([\\w-]+)(?:\\s*)((?:[^\\>]|[\\/](?!\\>$))*)(?:\\/)?\\>$" );
 
 

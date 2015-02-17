@@ -14,7 +14,7 @@
 			/**
 			 * id selector "#id"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )[ 'ID' ] = ...'
+			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'ID' , new ... );'
 			Regex.Filter[ 'ID' ] = new RegExp( "^#([\\w-]+)" );
 
 

@@ -14,7 +14,7 @@
 			/**
 			 * class selector ".class"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )[ 'CLASS' ] = ...'
+			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'CLASS' , new ... );'
 			Regex.Filter[ 'CLASS' ] = new RegExp( "^\\.([\\w-]+)");
 
 

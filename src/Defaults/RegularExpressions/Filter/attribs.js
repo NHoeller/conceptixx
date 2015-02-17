@@ -14,7 +14,7 @@
 			/**
 			 * attribute selector '[attribute=value]'
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )[ 'ATTR' ] = ...'
+			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'ATTR' , new ... );'
 			Regex.Filter[ 'ATTR' ] = new RegExp( "^\\[\\s*(?:([\\w-]+\\|)?([\\w-]+)\\s*)(?:(?:((?:~|\\^|\\$|" +
 				"\\*|\\||!)?=)\\s*(?:(?:\"((?:\\\\.|[^\\\\\"])*)\")|(?:'((?:\\\\.|[^\\\\'])*" +
 				")')|(?:([^\\]]*)))?)?)\\s*\\]" );

@@ -15,7 +15,7 @@
 		/**
 		 * define regular expression for URL building
 		 */
-		// alternative Defaults( 'RegularExpressions' )( 'UrlObject' )[ 'url' ] = ...'
+		// alternative Defaults( 'RegularExpressions' )( 'UrlObject' )( 'url' , new ... );'
 		Regex[ 'UrlObject' ].url = new RegExp(
 			/**
 			 * http://name:password@example.org:80/demo/example.php?key1=value1&key2=value2#anchor
