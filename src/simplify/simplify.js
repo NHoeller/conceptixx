@@ -29,8 +29,11 @@ myFunc_2( myObject , "newValue" ); // result myObject { property : "newValue" }
 	 */
 	var
 	simplify = function( f ) {
+		// define call function from Function.prototype
 		var call = Function.call;
+		// return simplify function
 		return function () {
+			// return call.apply construct
 			return call.apply( f, arguments );
 		};
 	};

@@ -13,7 +13,6 @@
 		/**
 		 * create Objects instance for modula
 		 */
-		// alternativ 'Defaults( 'Objects' )( 'modula' )
-		Objects[ 'modula' ] = Objects[ 'modula' ] || {};
+		// alternativ 'Objects[ 'modula' ] = Objects[ 'modula' ] || {}'
 
 

@@ -13,7 +13,7 @@
 		/**
 		 * object type regular expression
 		 */
-		// alternative 'Defaults( 'RegularExpressions' )( 'types' , = new ... );'
-		Regex.types = new RegExp( "^(?:\\[object\\s([^\\]]*)\\])$" );
+		// alternative 'Regex.types = new RegExp( "^(?:\\[object\\s([^\\]]*)\\])$" );'
+		Defaults( true , [ 'RegularExpressions' , 'types' ] , new RegExp( "^(?:\\[object\\s([^\\]]*)\\])$" ) );
 
 

@@ -17,26 +17,38 @@
 	/**
 	 * workout for combinators (">","~","+" and " ") 
 	 */
-	// Tokenizer[ 'COMBINATOR' ] = simplify( function( regexMatch ) {
-	Tokenizer[ 'COMBINATOR' ] = function( regexMatch ) {
-		// set nextParts as true for Tokenizer
-		this.nextParts = true;
-		// return unchanged argument
-		return regexMatch;
-	};
-	// } );
+	// alternative 1 line:25-28 'Tokenizer[ 'COMBINATOR' ] = function( regexMatch ) {'
+	// alternative 1 line:33 ');'
+	// alternative 2 line:25-28 'Tokenizer[ 'COMBINATOR' ] = simplify( function( regexMatch ) {'
+	// alternative 2 line:33 ');'
+	// alternative 3 line:28 'simplify( function( regexMatch ) {'
+	Defaults(
+		true ,
+		[ 'Objects' , 'Selector' , 'Tokenizer' , 'COMBINATOR' ] ,
+		function( regexMatch ) {
+			// set nextParts as true for Tokenizer
+			this.nextParts = true;
+			// return unchanged argument
+			return regexMatch;
+		},
 
 
 	/**
 	 * workout for seperator ","
 	 */
-	// Tokenizer[ 'SEPERATOR' ] = simplify( function( regexMatch ) {
-	Tokenizer[ 'SEPERATOR' ] = function( regexMatch ) {
-		// set nextGroup as true for Tokenizer
-		this.nextGroup = true;
-		// return unchanged argument
-		return regexMatch;
-	};
-	// } );
+	// alternative 1 line:44-46 'Tokenizer[ 'SEPERATOR' ] = function( regexMatch ) {'
+	// alternative 1 line:51-52 ');'
+	// alternative 2 line:44-46 'Tokenizer[ 'SEPERATOR' ] = simplify( function( regexMatch ) {'
+	// alternative 2 line:51-52 ');'
+	// alternative 3 line:46 'simplify( function( regexMatch ) {'
+		true ,
+		[ 'Objects' , 'Selector' , 'Tokenizer' , 'SEPERATOR' ] ,
+		function( regexMatch ) {
+			// set nextGroup as true for Tokenizer
+			this.nextGroup = true;
+			// return unchanged argument
+			return regexMatch;
+		}
+	);
 
 

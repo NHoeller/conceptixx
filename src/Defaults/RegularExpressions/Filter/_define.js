@@ -13,7 +13,6 @@
 	/**
 	 * define regular expressions for selector engine
 	 */
-	// alternative 'Defaults( 'RegularExpressions' )( 'Filter' );'
-	Regex[ 'Filter' ] = Regex[ 'Filter' ] || {};
+	// alternative 'Regex[ 'Filter' ] = Regex[ 'Filter' ] || {};'
 
 

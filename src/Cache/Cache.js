@@ -16,6 +16,7 @@
 	 */
 	var
 	Cache = function( cacheName ) {
+		// return caching function
 		return Cache[ ' ' + cacheName ] || ( Cache[ ' ' + cacheName ] = function( index , content ) {
 			// if index is cached
 			if( Cache[ ' ' + cacheName ][ ' ' + index ] ) { return Cache[ ' ' + cacheName ][ ' ' + index ]; }

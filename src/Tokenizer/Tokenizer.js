@@ -30,15 +30,19 @@
 	 * tokenize function extracts single selectors and
 	 * splits them to their elements and caches results
 	 */
-	// alternative line:36 'Filter = Defaults( 'RegularExpressions' )( 'Filter' );'
+	// alternative 1 line:38 'Tokenizer = function( selector ){'
+	// alternative 1 line:45 'Filter = Tokenizer._Regex || ( Tokenizer._Regex = Regex.Filter );'
+	// alternative 1 line:203 '};'
+	// alternative 2 line:59 '( !Tokenizer[ filter ] || ( match = Tokenizer[ filter ]( this , match ) ) ) ) {'
 	var
-	Tokenizer = function( selector ){
+	Tokenizer = Defaults( true , [ 'Objects' , 'Selector' , 'Tokenizer' ] , function( selector ){
 		// if cached we are done
 		if( Cache( 'Tokenizer' )( selector ) ) { return Cache( 'Tokenizer' )( selector ); };
 		// define used variables
 		var i , groups , group , match , matched , parts , result = [] ,
 			gtoken = '' , ptoken = '' , token = '',
-			Filter = regex.Filter;
+			// get Defaults 'Filter' (if not existing create object)
+			Filter =  Tokenizer._Regex || ( Tokenizer._Regex = Defaults( true , [ 'RegularExpressions' , 'Filter' ] ) );
 		// copy selector to this.newSelector
 		this.newSelector = selector;
 		// so we have a new token
@@ -53,7 +57,6 @@
 				//also check and handle tokenizer filter
 				if( ( match = Filter[ filter ].exec( this.newSelector ) ) && 
 					( !Tokenizer[ filter ] || ( match = Tokenizer[ filter ].call( this , match ) ) ) ) {
-		//			( !Tokenizer[ filter ] || ( match = Tokenizer[ filter ]( this , match ) ) ) ) { // if simplify
 					/**
 					 * if we handled a not statemant directly before
 					 */
@@ -197,6 +200,6 @@
 		};
 		// return cached result
 		return Cache( 'Tokenizer' )( selector , result );
-	};
+	} );
 
 

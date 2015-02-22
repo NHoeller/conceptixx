@@ -10,7 +10,6 @@
 	/**
 	 * define Objects for the modula.js
 	 */
-	// alternative 'Defaults( 'Objects' );'
-	Defaults[ 'Objects' ] = Defaults[ 'Objects' ] || {};
+	// alternative 'Defaults[ 'Objects' ] = Defaults[ 'Objects' ] || {};'
 
 

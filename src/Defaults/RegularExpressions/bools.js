@@ -15,7 +15,8 @@
 		/**
 		 * boolean attributes
 		 */
-		// alternative 'Defaults( 'RegularExpressions' )( 'bools' , new ... );'
-		Regex.bools = new RegExp( "^(" + Strings.bools + ")$" );
+		// alternative 'Regex.bools = new RegExp( "^(" + Strings.bools + ")$" );'
+		Defaults( true , [ 'RegularExpressions' , 'bools' ] , new RegExp( "^(" +
+			Defaults( [ 'Strings' , 'bools' ] ) + ")$" ) );
 
 

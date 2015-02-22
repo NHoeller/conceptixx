@@ -14,7 +14,8 @@
 			/**
 			 * tag selector "div"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'TAG' , new ... );'
-			Regex.Filter[ 'TAG' ] = new RegExp( "^(?:(?:\\*|[\\w-]+)\\|)?(\\*|[\\w-]+)" );
+			// alternative 'Regex.Filter[ 'TAG' ] = new RegExp( "^(?:(?:\\*|[\\w-]+)\\|)?(\\*|[\\w-]+)" );'
+			Defaults( true , [ 'RegularExpressions' , 'Filter' , 'TAG' ] , 
+				new RegExp( "^(?:(?:\\*|[\\w-]+)\\|)?(\\*|[\\w-]+)" ) );
 
 

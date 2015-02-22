@@ -14,18 +14,22 @@
 			/**
 			 * not statements like ":not(p)" also support qualified selectors ":not(p>p>p)"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'NOT' , new ... );'
-			Regex.Filter[ 'NOT' ] = new RegExp( "^(:not\\s*(?:\\())" );
+			// alternative line:19-21 'Regex.Filter[ 'NOT' ] = '
+			// alternative line:23 ';'
+			Defaults(
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'NOT' ] , 
+				new RegExp( "^(:not\\s*(?:\\())" )
+				,
 
 			/**
 			 * delimiter ")" is used only for the qualified selectors on not statements
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'DELIMITER' , new ... );'
-			Regex.Filter[ 'DELIMITER' ] = new RegExp( "^(\\))" );
-
-
-			// the Defaults() method can use combined
-			// 'Defaults( 'RegularExpressions' )( 'Filter' )
-			//		( 'NOT' , new ... , 'DELIMITER' , new ... );
+			// alternative line:30-31 'Regex.Filter[ 'DELIMITER' ] = '
+			// alternative line:33 ';'
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'DELIMITER' ] ,
+				new RegExp( "^(\\))" )
+			) ;
 
 

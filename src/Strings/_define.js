@@ -13,7 +13,8 @@
 	 * define Strings for the modula.js
 	 */
 	var
-	// alternative 'Strings = Defaults( 'Strings' );
-	Strings = Strings || Defaults[ 'Strings' ];
+	// alternative 'Strings = Strings || Defaults[ 'Strings' ];'
+	Strings = Defaults( true , [ 'Strings' ] );
+	
 
 

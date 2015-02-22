@@ -11,7 +11,7 @@
 	 * define Defaults for modula.js
 	 */
 	var
-	// alternative take Defaults.Defaults
-	Defaults = Defaults || {};
+	// alternative 'Defaults = Defaults || {};'
+	
 
 

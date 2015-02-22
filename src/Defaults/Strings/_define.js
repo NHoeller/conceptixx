@@ -10,7 +10,6 @@
 	/**
 	 * define Strings for the modula.js
 	 */
-	// alternative 'Defaults( 'Strings' );'
-	Defaults[ 'Strings' ] = Defaults[ 'Strings' ] || {};
+	// alternative 'Defaults[ 'Strings' ] = Defaults[ 'Strings' ] || {};'
 
 

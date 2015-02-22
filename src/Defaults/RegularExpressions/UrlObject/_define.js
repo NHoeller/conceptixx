@@ -13,7 +13,7 @@
 	/**
 	 * define regular expressions for UrlObject engine
 	 */
-	// alternative 'Defaults( 'RegularExpressions' )( 'UrlObject' );'
-	Regex[ 'UrlObject' ] = Regex[ 'UrlObject' ] || {};
+	// alternative 'Regex[ 'UrlObject' ] = Regex[ 'UrlObject' ] || {};'
+	
 
 

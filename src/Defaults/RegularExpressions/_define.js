@@ -11,7 +11,6 @@
 	/**
 	 * define RegularExpressions for the modula.js
 	 */
-	// alternative 'Defaults( 'RegularExpressions' );'
-	Defaults[ 'RegularExpressions' ] = Defaults[ 'RegularExpressions' ] || {};
+	// alternative 'Defaults[ 'RegularExpressions' ] = Defaults[ 'RegularExpressions' ] || {};'
 
 

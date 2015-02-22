@@ -15,8 +15,9 @@
 		/**
 		 * cache is a regular expression that is used for the selector manual caching
 		 */
-		// alternative Defaults( 'RegularExpressions' )( 'Selector' )( 'cache' , new ... );'
-		Regex[ 'Selector' ].cache = new RegExp( "^(?:([+](?=[\\w\\|%]))?([\\w]*[\\w]" +
-			"(?=[\\|%]))?(?:([\\|])(?=[\\d%]))?([\\d]*)?%)?(?:\\s*(.*))?$" );
+		// alternative line:20 'Regex[ 'Selector' ].cache = new RegExp( "^(?:([+](?=[\\w\\|%]))?([\\w]*" +
+		// alternative line:21 '"[\\w](?=[\\|%]))?(?:([\\|])(?=[\\d%]))?([\\d]*)?%)?(?:\\s*(.*))?$" );'
+		Defaults( true , [ 'RegularExpressions' , 'Selector' , 'cache' ] , new RegExp( "^(?:([+](?=" +
+			"[\\w\\|%]))?([\\w]*[\\w](?=[\\|%]))?(?:([\\|])(?=[\\d%]))?([\\d]*)?%)?(?:\\s*(.*))?$" ) );
 
 

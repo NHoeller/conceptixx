@@ -14,9 +14,14 @@
 			/**
 			 * attribute selector '[attribute=value]'
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'ATTR' , new ... );'
-			Regex.Filter[ 'ATTR' ] = new RegExp( "^\\[\\s*(?:([\\w-]+\\|)?([\\w-]+)\\s*)(?:(?:((?:~|\\^|\\$|" +
-				"\\*|\\||!)?=)\\s*(?:(?:\"((?:\\\\.|[^\\\\\"])*)\")|(?:'((?:\\\\.|[^\\\\'])*" +
-				")')|(?:([^\\]]*)))?)?)\\s*\\]" );
+			// alternative line:19-21 'Regex.Filter[ 'ATTR' ] = '
+			// alternative line:25 ';'
+			Defaults(
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'ATTR' ] , 
+				new RegExp( "^\\[\\s*(?:([\\w-]+\\|)?([\\w-]+)\\s*)(?:(?:((?:~|" +
+				"\\^|\\$|\\*|\\||!)?=)\\s*(?:(?:\"((?:\\\\.|[^\\\\\"])*)\")|(?:" +
+				"'((?:\\\\.|[^\\\\'])*)')|(?:([^\\]]*)))?)?)\\s*\\]" )
+			);
 
 

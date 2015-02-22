@@ -16,12 +16,15 @@
 	 */
 	var
 	isCollection = function( obj ) {
-		var regex = new RegExp( "^\\[object (HTMLCollection|NodeList)\\]$" );
+		var regex = isCollection._Regex.regular || ( isCollection._Regex = {
+			regular : new RegExp( "^\\[object (HTMLCollection|NodeList)\\]$" ) ,
+			modern : new RegExp( "^\\[object (Object|Array)\\]$" ) } ).regular;
 		// if object is a HTMLCollection or a NodeList
 		if( typeof obj === 'object' && regex.test( toString( obj ) ) ) {
+			// we are done
 			return true;
 		};
-		regex = new RegExp( "^\\[object (Object|Array)\\]$" );
+		regex = isCollection._Regex.modern;
 		// if object is an Object or an Array
 		if( typeof obj === 'object' && regex.test( toString( obj ) ) && obj.hasOwnProperty( 'length' ) ) {
 			// check if each index equals a node

@@ -20,7 +20,7 @@
 	 */
 	var
 	isNative = function( fn ) {
-		var regex = new RegExp( "^[^{]*\\{\\s*\\[native \\w" );
+		var regex = isNative._Regex || ( isNative._Regex = new RegExp( "^[^{]*\\{\\s*\\[native \\w" ) );
 		return regex.test( fn );
 	};
 

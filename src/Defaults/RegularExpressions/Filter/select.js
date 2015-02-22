@@ -14,18 +14,20 @@
 			/**
 			 * seperator like the comma in "div , div"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'SEPERATOR' , new ... );'
-			Regex.Filter[ 'SEPERATOR' ] = new RegExp( "^\\s*,\\s*" );
+			// alternative line:18-22 'Regex.Filter[ 'SEPERATOR' ] = new RegExp( "^\\s*,\\s*" );'
+			Defaults(
+				true , 
+				[ 'RegularExpressions' , 'Filter' , 'SEPERATOR' ] , 
+				new RegExp( "^\\s*,\\s*" )
+				,
 
 			/**
 			 * combinators are ">" , "+" , "~" and " "
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'COMBINATOR' , new ... );'
-			Regex.Filter[ 'COMBINATOR' ] = new RegExp( "^\\s*([>+~]|\\s)\\s*" );
-
-
-			// the Defaults() method can use combined
-			// 'Defaults( 'RegularExpressions' )( 'Filter' )
-			//		( 'SEPERATOR' , new ... , 'COMBINATOR' , new ... );
+			// alternative line:28-31 'Regex.Filter[ 'COMBINATOR' ] = new RegExp( "^\\s*([>+~]|\\s)\\s*" );'
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'COMBINATOR' ] , 
+				new RegExp( "^\\s*([>+~]|\\s)\\s*" )
+			);
 
 

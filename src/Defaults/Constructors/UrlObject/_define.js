@@ -13,7 +13,7 @@
 		/**
 		 * create Constructors instance for UrlObject
 		 */
-		// alternativ 'Defaults( 'Constructors' )( 'UrlObject' )
-		Constructors[ 'UrlObject' ] = Constructors[ 'UrlObject' ] || {};
+		// alternativ 'Constructors[ 'UrlObject' ] = Constructors[ 'UrlObject' ] || {}'
+		Defaults( true , [ 'Constructors' , 'UrlObject' ] );
 
 

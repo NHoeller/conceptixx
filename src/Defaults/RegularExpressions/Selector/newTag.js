@@ -15,7 +15,9 @@
 		/**
 		 * newTag matches new html/xml tags and their attributes
 		 */
-		// alternative Defaults( 'RegularExpressions' )( 'Selector' )( 'newTag' , new ... );'
-		Regex[ 'Selector' ].newTag = new RegExp( "^\\<([\\w-]+)(?:\\s*)((?:[^\\>]|[\\/](?!\\>$))*)(?:\\/)?\\>$" );
+		// alternative line:20 'Regex[ 'Selector' ].newTag = '
+		// alternative line:21 'new RegExp( "^\\<([\\w-]+)(?:\\s*)((?:[^\\>]|[\\/](?!\\>$))*)(?:\\/)?\\>$" );'
+		Defaults( true , [ 'RegularExpressions' , 'Selector' , 'newTag' ] , 
+			new RegExp( "^\\<([\\w-]+)(?:\\s*)((?:[^\\>]|[\\/](?!\\>$))*)(?:\\/)?\\>$" ) );
 
 

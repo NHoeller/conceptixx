@@ -14,7 +14,7 @@
 			/**
 			 * backmark is used for selectors level 4 "div > !div  > div"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'BACKMARK' , new ... );'
-			Regex.Filter[ 'BACKMARK' ] = new RegExp( "^!" );
+			// alternative 'Regex.Filter[ 'BACKMARK' ] = new RegExp( "^!" );'
+			Defaults( true , [ 'RegularExpressions' , 'Filter' , 'BACKMARK' ] , new RegExp( "^!" ) );
 
 

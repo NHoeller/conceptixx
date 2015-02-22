@@ -13,7 +13,6 @@
 	 * define RegExp for modula.js
 	 */
 	var
-	// alternative 'Regex = Defaults( 'RegularExpressions' );'
-	Regex = Regex || Defaults[ 'RegularExpressions' ];
+	// alternative 'Regex = Regex || Defaults[ 'RegularExpressions' ];'
 
 

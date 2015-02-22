@@ -1,7 +1,7 @@
 /**
  * @project : modula.js
  * @package : 
- * @internal : Defaults.Objects.UrlObject._define
+ * @internal : Defaults.Objects.Selector._define
  * @type :
  * @dependencies :	Defaults._define
  * 					Defaults.Defaults
@@ -11,9 +11,8 @@
 
 
 		/**
-		 * create Objects instance for UrlObject
+		 * create Objects instance for Selector
 		 */
-		// alternativ 'Objects[ 'UrlObject' ] = Objects[ 'UrlObject' ] || {};'
-		
+		// alternativ 'Objects[ 'Selector' ] = Objects[ 'Selector' ] || {};'		
 
 

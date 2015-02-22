@@ -14,20 +14,24 @@
 			/**
 			 * child/of-type selector like ":first-child"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'CHILD' , new ... );'
-			Regex.Filter[ 'CHILD' ] = new RegExp( "^:(first|last|(nth)(?:-last)?|only)-(child|of-type)(?:\\(" +
-				"\\s*(even|odd|(?:([+-]|)(\\d*)n|)\\s*(?:([+-]|)\\s*(\\d+)|))\\s*\\)|)", "i");
+			// alternative line:19-21 'Regex.Filter[ 'CHILD' ] ='
+			// alternative line:24 ';'
+			Defaults(
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'CHILD' ] ,
+				new RegExp( "^:(first|last|(nth)(?:-last)?|only)-(child|of-type)(?:\\(" +
+				"\\s*(even|odd|(?:([+-]|)(\\d*)n|)\\s*(?:([+-]|)\\s*(\\d+)|))\\s*\\)|)", "i")
+				,
 
 			/**
 			 * other pseudos like "::before"
 			 */
-			// alternative 'Defaults( 'RegularExpressions' )( 'Filter' )( 'PSEUDO' , new ... );'
-			Regex.Filter[ 'PSEUDO' ] = new RegExp( "^(:(?::)?[\\w-]+)(?:\\(((?:'((?:\\\\.|[^\\\\'])*)'|" +
-				"\"((?:\\\\.|[^\\\\\"])*)\")|.*)\\))?" );
-
-
-			// the Defaults() method can use combined
-			// 'Defaults( 'RegularExpressions' )( 'Filter' )
-			//		( 'CHILD' , new ... , 'PSEUDO' , new ... );
+			// alternative line:31-32 'Regex.Filter[ 'PSEUDO' ] = '
+			// alternative line:35 ';'
+				true ,
+				[ 'RegularExpressions' , 'Filter' , 'PSEUDO' ] , 
+				new RegExp( "^(:(?::)?[\\w-]+)(?:\\(((?:'((?:\\\\.|[^\\\\'])*)'|" +
+				"\"((?:\\\\.|[^\\\\\"])*)\")|.*)\\))?" )
+			) ;
 
 

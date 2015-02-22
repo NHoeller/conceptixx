@@ -10,7 +10,6 @@
 	/**
 	 * define Prototypes for the modula.js
 	 */
-	// alternative 'Defaults( 'Prototypes' );'
-	Defaults[ 'Prototypes' ] = Defaults[ 'Prototypes' ] || {};
+	// alternative 'Defaults[ 'Prototypes' ] = Defaults[ 'Prototypes' ] || {};'
 
 

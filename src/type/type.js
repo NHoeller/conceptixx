@@ -21,11 +21,11 @@
 	/**
 	 * gets the type of an object
 	 */
+	// alternative line:28 'regex = type._Regex || ( type._Regex = Regex.types );'
 	var
 	type = function( obj ) {
-		var value;
-		// alternative 'Defaults.RegularExpressions.types.exec( ...'
-		// or 'Defaults( 'RegularExpressions' )[ 'types' ].exec
-		return ( ( value = Regex.types.exec( toString( obj ) ) ) ) && value && value[1] || obj;
+		var value ,
+		regex = type._Regex || ( type._Regex = Defaults( [ 'RegularExpressions' , 'types' ] ) );
+		return ( ( value = regex.exec( toString( obj ) ) ) ) && value && value[1] || obj;
 	};
 

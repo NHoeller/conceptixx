@@ -21,14 +21,15 @@
 		/**
 		 * define modula as function
 		 */
-		// alternative replace 'Objects[ 'modula' ]' by 'Defaults( 'Objects' )( 'modula' )' 
+		// alternative line:29 'if( ( cache = Objects[ 'modula' ][ selector ] ) ) { return cache; };'
+		// alternative line:32 '( Objects[ 'modula' ][ selector ] = new modula.fn.init( selector ) )'
 		var
 		modula = function( selector ) {
 			// if we have the  selector  as Object we are done quickly
-			if( Objects[ 'modula' ][ selector ] ) { return Objects[ 'modula' ][ selector ]; };
-			// return new URLObject
-			return  selector 
-				? ( Objects[ 'modula' ][ selector ] = new modula.fn.init( selector ) )
+			if( ( cache = Defaults( [ 'Objects' , 'modula' , selector ] ) ) ) { return cache; };
+			// return new modula
+			return  selector ?
+				Defaults( true , [ 'Objects' , 'modula' , selector ] , new modula.fn.init( selector ) )
 				: new modula.fn.init( selector )
 			;
 		};
@@ -37,8 +38,8 @@
 		/**
 		 * define modula in Prototypes
 		 */
-		// alternative 'modula.fn = Defaults( 'Prototypes' )( 'modula' , { ...} );'
-		modula.fn = ( Prototypes.modula = modula.prototype = {
+		// alternative line:42 'modula.fn = ( Prototypes.modula = modula.prototype = {'
+		modula.fn = Defaults( true , [ 'Prototypes' , 'modula' ] , {
 
 
 			/**
@@ -55,8 +56,8 @@
 		/**
 		 * define modula in Constructors
 		 */
-		// alternative 'modula.fn.init = Defaults( 'Constructors' )( 'modula' , ( function() { ...} )() );'
-		modula.fn.init = ( Constructors.modula = ( function() {
+		// alternative line:60 'modula.fn.init = ( Constructors.modula = ( function() {'
+		modula.fn.init = Defaults( true , [ 'Constructors' , 'modula' ] , ( function() {
 
 
 			/**

@@ -13,7 +13,7 @@
 	 * define Objects for the modula.js
 	 */
 	var
-	// alternative 'Objects = Defaults( 'Objects' );
-	Objects = Objects || Defaults[ 'Objects' ];
+	// alternative 'Objects = Objects || Defaults[ 'Objects' ];'
+	Objects = Defaults( true , 'Objects' );
 
 

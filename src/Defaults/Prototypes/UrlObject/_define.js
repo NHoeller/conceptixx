@@ -13,7 +13,6 @@
 		/**
 		 * create Prototypes instance for UrlObject
 		 */
-		// alternativ 'Defaults( 'Prototypes' )( 'UrlObject' )
-		Prototypes[ 'UrlObject' ] = Prototypes[ 'UrlObject' ] || {};
+		// alternativ 'Prototypes[ 'UrlObject' ] = Prototypes[ 'UrlObject' ] || {};'
 
 

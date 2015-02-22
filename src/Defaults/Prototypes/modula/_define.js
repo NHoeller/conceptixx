@@ -13,7 +13,6 @@
 		/**
 		 * create Prototypes instance for modula
 		 */
-		// alternativ 'Defaults( 'Prototypes' )( 'modula' )
-		Prototypes[ 'modula' ] = Prototypes[ 'modula' ] || {};
+		// alternativ 'Prototypes[ 'modula' ] = Prototypes[ 'modula' ] || {};'		
 
 

@@ -13,7 +13,7 @@
 	 * define Constructors for the modula.js
 	 */
 	var
-	// alternative 'Constructors = Defaults( 'Constructors' );
-	Constructors = Constructors || Defaults[ 'Constructors' ];
+	// alternative 'Constructors = Constructors || Defaults[ 'Constructors' ]';
+	Constructors = Defaults( true , 'Constructors' );
 
 

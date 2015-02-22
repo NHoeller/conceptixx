@@ -13,7 +13,7 @@
 		/**
 		 * trim and escaping
 		 */
-		// alternative 'Defaults( 'RegularExpressions' )( 'trim' , new ... );'
-		Regex.trim = new RegExp( "^\\s*|\\s*$" , 'g' );
+		// alternative 'Regex.trim = new RegExp( "^\\s*|\\s*$" , 'g' );'
+		Defaults( true , [ 'RegularExpressions' , 'trim' ] , new RegExp( "^\\s*|\\s*$" , 'g' ) );
 
 

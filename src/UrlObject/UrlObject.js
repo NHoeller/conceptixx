@@ -25,14 +25,17 @@
 		 * define UrlObject as function
 		 * this function returns a modula UrlObject. its nearly the same as URL (ECMA-7)
 		 */
-		// alternative replace 'Objects[ 'UrlObject' ]' by 'Defaults( 'Objects' )( 'UrlObject' )' 
+		// alternative line:35 'if( ( cache = Objects[ 'UrlObject' ][ URLString ] ) ) { return cache; };'
+		// alternative line:38 '( Objects[ 'UrlObject' ][ URLString ] = new UrlObject.fn.init( URLString ) )'
 		var
 		UrlObject = function( URLString , URLCache ) {
+			// define cache
+			var cache;
 			// if we have the URLString as Object we are done quickly
-			if( Objects[ 'UrlObject' ][ URLString ] ) { return Objects[ 'UrlObject' ][ URLString ]; };
+			if( ( cache = Defaults( [ 'Objects' , 'UrlObject' , URLString ] ) ) ) { return cache; };
 			// return new URLObject
-			return URLCache
-				? ( Objects[ 'UrlObject' ][ URLString ] = new UrlObject.fn.init( URLString ) )
+			return URLCache ?
+				Defaults( true , [ 'Objects' , 'UrlObject' , URLString ] , new UrlObject.fn.init( URLString ) )
 				: new UrlObject.fn.init( URLString )
 			;
 		};
@@ -41,8 +44,8 @@
 		/**
 		 * define UrlObject in Prototypes
 		 */
-		// alternative 'UrlObject.fn = Defaults( 'Prototypes' )( 'UrlObject' , { ...} );'
-		UrlObject.fn = ( Prototypes.UrlObject = UrlObject.prototype = {
+		// alternative line:48 'UrlObject.fn = ( Prototypes.UrlObject = UrlObject.prototype = {'
+		UrlObject.fn = Defaults( true , [ 'Prototypes' , 'UrlObject' ] , {
 
 
 			/**
@@ -56,19 +59,21 @@
 				
 		} );
 
+
 		/**
 		 * define UrlObject in Constructors
 		 */
-		// alternative 'UrlObject.fn.init = Defaults( 'Constructors' )( 'UrlObject' , ( function() { ...} )() );'
-		UrlObject.fn.init = ( Constructors.UrlObject = ( function() {
+		// alternative line:68 'UrlObject.fn.init = ( Constructors.UrlObject = ( function() {'
+		// alternative line:76 'regex = UrlObject._Regex || ( UrlObject._Regex = Regex[ 'UrlObject' ] );'
+		UrlObject.fn.init = Defaults( true , [ 'Constructors' , 'UrlObject' ] , ( function() {
 
 
 			/**
 			 * regex
 			 */
 			var
-			// alternative 'regex = Defaults( 'RegularExpressions' )( 'UrlObject' );'
-			regex = Regex[ 'UrlObject' ];
+			// get Defaults 'UrlObject' ( create if not existing)
+			regex = UrlObject._Regex || ( UrlObject._Regex = Defaults( true , [ 'RegularExpressions' , 'UrlObject' ] ) );
 
 
 			/**
@@ -78,6 +83,11 @@
 			 */
 			var
 			Constructor = function( URLString ) {
+				// check for regular expression
+				if( !regex.url ) {
+					// throw error if no valid regex
+					throw new Error( 'no regular expression asigned for : \'url\'' );
+				};
 				// match URLString with regex
 				var match = regex.url.exec( URLString );
 				// if we have no valid url with host and/or path

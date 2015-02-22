@@ -15,7 +15,9 @@
 	 */
 	var
 	isInstance = function( obj , inst ) {
-		inst = inst||modula;
+		// if inst is omitted use 'modula' instead
+		inst = inst || modula;
+		// return result
 		return ( obj instanceof inst );
 	};
 

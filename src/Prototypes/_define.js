@@ -13,7 +13,7 @@
 	 * define Prototypes for the modula.js
 	 */
 	var
-	// alternative 'Prototypes = Defaults( 'Prototypes' );
-	Prototypes = Prototypes || Defaults[ 'Prototypes' ];
+	// alternative 'Prototypes = Prototypes || Defaults[ 'Prototypes' ];'
+	Prototypes = Defaults( true , [ 'Prototypes' ] );
 
 
