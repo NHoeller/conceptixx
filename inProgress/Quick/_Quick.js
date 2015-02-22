@@ -16,6 +16,7 @@
 	 * define Quick
 	 */
 	// alternative line:xx ''
-	Defaults( true , [ 'Objects' , 'Selector' , 'Quick' ] , ( function() {
+	var
+	Quick = Defaults( true , [ 'Objects' , 'Selector' , 'Quick' ] , ( function() {
 		
 	} ) )
