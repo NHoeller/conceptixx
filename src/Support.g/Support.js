@@ -18,7 +18,10 @@
 	 * Support
 	 */
 	var
-	Support = function( fn ) {
+	Support = Defaults(
+		true ,
+		[ 'Objects' , 'Support' ] ,
+		function( fn ) {
 		// create div element
 		var div = doc.createElement( 'div' );
 		// try to ...
@@ -36,6 +39,6 @@
 			// delete div for memory release
 			div = null;
 		};
-	};
+	} );
 
 
