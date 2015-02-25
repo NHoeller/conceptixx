@@ -7,8 +7,10 @@
 */
 
 
-	Support[ 'XhrObject' ] = (
-		function() { 
+	Defaults(
+		false ,
+		[ 'Support' , 'XhrObject' ] ,
+		( function() { 
 			// check for regular XMLHttpRequests
 			if( XMLHttpRequest ) { return true };
 			// check for the microsoft's way
@@ -30,7 +32,7 @@
 			}
 			// so we passed not without an error or no XMLHttpRequest can be used
 			return false;
-		} )();
+		} )() );
 
 
 
