@@ -54,7 +54,7 @@
 		 * define XhrObject in Constructors
 		 */
 		// alternative line:65 'XhrObject.fn.init = ( Constructors.XhrObject = ( function() {'
-		// alternative line:82 'Defaults.XHRObject.override'
+		// alternative line:82 'Defaults.Defaults.XHRObject.override'
 		XhrObject.fn.init = Defaults( true , [ 'Constructors' , 'XhrObject' ] , ( function() {
 
 

@@ -25,11 +25,11 @@
 		 *
 		 */
 		// alternative 1 line:34-37 'Prototypes.XhrObject.send = function( XhrOptions ) {'
-		// alternative 1 line:39 'var XhrSendData = XhrOptions.sendData || Defaults.XhrObject.sendData;'
-		// alternative 1 line:45-46 'var XhrMethod = ( XhrOptions.method || Defaults.XhrObject.method ).toUpperCase();'
+		// alternative 1 line:39 'var XhrSendData = XhrOptions.sendData || Defaults.Defaults.XhrObject.sendData;'
+		// alternative 1 line:45-46 'var XhrMethod = ( XhrOptions.method || Defaults.Defaults.XhrObject.method ).toUpperCase();'
 		// alternative 1 line:48 'if( !Regex.XhrObject.methods.test( XhrMethod ) ) {'
 		// alternative 1 line:52 'var XhrCaching = !( XhrOptions.cache === false || !( !XhrOptions.cache &&'
-		// alternative 1 line:53 'Defaults.XhrObject.cache !== true ) );'
+		// alternative 1 line:53 'Defaults.Defaults.XhrObject.cache !== true ) );'
 		// alternative 1 line:72-73 '};'
 		Defaults(
 			false ,

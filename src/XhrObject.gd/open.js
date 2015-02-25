@@ -21,15 +21,15 @@
 				 * define open to open a XMLHttpRequest. 
 				 */
 				// alternative 1 line:26-29 'Prototypes.XhrObject.header = function( XhrOptions ) {'
-				// alternative 1 line:33 'Defaults.XhrObject.method ).toUpperCase(),'
-				// alternative 1 line:33 'Defaults.XhrObject.async !== true ) ),'
-				// alternative 1 line:33 'Defaults.XhrObject.user,'
-				// alternative 1 line:33 'Defaults.XhrObject.password,'
-				// alternative 1 line:33 'Defaults.XhrObject.cache !== true ) );'
-				// alternative 1 line:33 'Defaults.XhrObject.timeout >>> 0 > 0'
-				// alternative 1 line:33 'Defaults.XhrObject.responseType'
-				// alternative 1 line:33 'Defaults.XhrObject.withCredentials'
-				// alternative 1 line:33 'Defaults.XhrObject.sendData ) || '' );'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.method ).toUpperCase(),'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.async !== true ) ),'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.user,'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.password,'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.cache !== true ) );'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.timeout >>> 0 > 0'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.responseType'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.withCredentials'
+				// alternative 1 line:33 'Defaults.Defaults.XhrObject.sendData ) || '' );'
 				// alternative 1 line:41-42 '};'
 				Defaults(
 					false ,

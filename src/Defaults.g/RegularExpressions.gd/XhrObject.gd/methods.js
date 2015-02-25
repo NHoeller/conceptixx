@@ -8,7 +8,7 @@
  * 					Defaults.RegularExpressions._define
  * 					Defaults.RegularExpressions.XhrObject._define
  * 					Regex._define
- * 					Regex.Selector._define
+ * 					Regex.XhrObject._define
  */
 
 

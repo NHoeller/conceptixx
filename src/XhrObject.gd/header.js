@@ -21,7 +21,7 @@
 		 * define header function
 		 */
 		// alternative 1 line:26-29 'Prototypes.XhrObject.header = function( XhrOptions ) {'
-		// alternative 1 line:33 'Defaults.XHRObject.requestHeader;'
+		// alternative 1 line:33 'Defaults.Defaults.XHRObject.requestHeader;'
 		// alternative 1 line:41-42 '};'
 		Defaults(
 			false ,
