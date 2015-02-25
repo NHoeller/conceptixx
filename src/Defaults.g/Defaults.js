@@ -15,11 +15,9 @@
 	Defaults = function() {
 		// set variables
 		var
-		keys , current , indices , create , counter = 0 , args = slice( arguments );
+		keys , current , indices , create , args = slice( arguments );
 		// loop the arguments (if multiple notation)
 		while( ( keys = args.shift() ) !== undefined ) {
-			// increase counter
-			counter++;
 			// set create as none
 			create = 'none';
 			// check for boolean and args length
