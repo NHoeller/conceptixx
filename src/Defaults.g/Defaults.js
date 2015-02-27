@@ -33,12 +33,13 @@
 			// loop indices
 			for( var i = 0 , l = indices.length ; i < l ; i++ ) {
 				// check for current
-				if( !current[ indices[ i ] ] && ( create === 'none' || ( create === 'last' && i + 1 < l ) ) ) {
+				if( current[ indices[ i ] ] === undefined && ( create === 'none' || ( create === 'last' && i + 1 < l ) ) ) {
 					// so we are done here
 					return;
 				}
 				// set current as new object if needed
-				current = ( current[ indices[ i ] ] = ( i + 1 === l && args.length > 0 ) ? args.shift() : current[ indices[ i ] ] || {} );
+				current = ( current[ indices[ i ] ] = ( i + 1 === l && args.length > 0 ) ? args.shift() :
+					current[ indices[ i ] ] !== undefined ? current[ indices[ i ] ] : {} );
 			};
 			// check if we have another args
 			if( args.length === 0 ) {
