@@ -35,15 +35,15 @@
 				// check for current
 				if( !current[ indices[ i ] ] && ( create === 'none' || ( create === 'last' && i + 1 < l ) ) ) {
 					// so we are done here
-					return false;
+					return;
 				}
 				// set current as new object if needed
-				current = ( current[ indices[ i ] ] = ( i + 1 === l && args.shift() ) || current[ indices[ i ] ] || {} );
+				current = ( current[ indices[ i ] ] = ( i + 1 === l && args.length > 0 ) ? args.shift() : current[ indices[ i ] ] || {} );
 			};
 			// check if we have another args
 			if( args.length === 0 ) {
 				// return last current
-				return current || true;
+				return ( current !== undefined ? current : true );
 			};
 		};
 	};
