@@ -3,8 +3,7 @@
  * @package : core
  * @internal : last.last
  * @type : function
- * @dependencies :	_define
- * 					_array.array
+ * @dependencies :	_array.array
  *
  * @description :
  * gets the last element of an array

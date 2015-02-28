@@ -1,17 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : containsAll.containsAll
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
- * 					type.type
- * 					isWindow.isWindow
- * 					isArraylike.isArraylike
+ * @dependencies :	isArraylike.isArraylike
  * 					indexOf.indexOf
  *
  * @description :

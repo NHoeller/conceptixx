@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package :
  * @internal : isNative.isNative
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * the Support is used to build crossbrowser compatible modula.js

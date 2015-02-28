@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : isSibling.isSibling
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * isSibling checks if 2 DOM nodes are siblings

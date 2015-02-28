@@ -3,12 +3,7 @@
  * @package : core
  * @internal : isPlainObject.isPlainObject
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
+ * @dependencies :	_object.object
  * 					type.type
  * 					isWindow.isWindow
  *

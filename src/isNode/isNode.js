@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : isNode.isNode
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * isNode detects if the given argument is a DOM node

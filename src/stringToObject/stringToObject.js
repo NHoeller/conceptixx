@@ -3,14 +3,7 @@
  * @package : core
  * @internal : functions.stringToObject
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
- * 					type.type
- * 					isString.isString
+ * @dependencies :	isString.isString
  *
  * @description :
  * turns a String to a key/value based object

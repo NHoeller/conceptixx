@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package :
  * @internal : simpilfy.simpilfy
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  * 
  * @description :
  * simplify is a simple 'uncurry' used to work with

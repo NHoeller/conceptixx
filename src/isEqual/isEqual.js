@@ -3,13 +3,7 @@
  * @package : 
  * @internal : isEqual.isEqual
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
- * 					type.type
+ * @dependencies :	type.type
  * 					isEqual.isEqual
  *
  * @description :

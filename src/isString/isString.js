@@ -1,15 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : isString.isString
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
- * 					type.type
+ * @dependencies :	type.type
  *
  * @description :
  * isArray checks if an object is an array

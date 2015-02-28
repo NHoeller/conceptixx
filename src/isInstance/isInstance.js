@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package :
  * @internal : isInstance.isInstance
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * isInstance checks for a given instance or modula if inst left empty

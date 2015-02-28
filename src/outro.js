@@ -1,12 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package :
  * @internal : outro
  * @type : 
  * @dependencies :	none
- *
- * @description :
- * modula outro is the basic end of the modula.js project
  */
 
 

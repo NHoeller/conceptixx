@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : indexOf.indexOf
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * indexOf is a faster function than the native one. it is also prepared like

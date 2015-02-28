@@ -1,6 +1,6 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package :
  * @internal : isWindow.isWindow
  * @type : function
  * @dependencies : none

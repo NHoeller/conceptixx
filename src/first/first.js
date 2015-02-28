@@ -1,10 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : first.first
  * @type : function
- * @dependencies :	_define
- * 					_array.array
+ * @dependencies :	_array.array
  *
  * @description :
  * gets the first element of an array

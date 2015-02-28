@@ -1,6 +1,6 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : isScion.isScion
  * @type : function
  * @dependencies :	indexOf.indexOf

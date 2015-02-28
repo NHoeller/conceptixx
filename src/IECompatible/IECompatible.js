@@ -1,9 +1,9 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : IECompatible.IECompatible
  * @type : function
- * @dependencies : none
+ * @dependencies :	none
  *
  * @description :
  * checks if the browser is compatible with checkVersion of Internet Explorer

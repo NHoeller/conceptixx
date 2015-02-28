@@ -1,6 +1,6 @@
 /**
  * @project : modula.js
- * @package : core
+ * @package : 
  * @internal : isBool.isBool
  * @type : function
  * @dependencies :	none

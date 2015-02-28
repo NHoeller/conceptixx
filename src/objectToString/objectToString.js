@@ -3,14 +3,7 @@
  * @package : core
  * @internal : functions.objectToString
  * @type : function
- * @dependencies :	Defaults._define
- * 					Defaults.Defaults
- * 					Defaults.RegularExpressions._define
- * 					Defaults.RegularExpressions.types
- * 					Regex._define
- * 					_object.object
- * 					type.type
- * 					isString.isString
+ * @dependencies :	isString.isString
  *
  * @description :
  * turns an object into a separated and delimited string
