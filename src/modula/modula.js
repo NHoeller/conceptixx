@@ -74,8 +74,8 @@
 			){
 				// set tasks demand function to each entry
 				modulaDummy[ methods[ i ] ] = ( function( text ) {
-					return function() {
-						alert( 'demand started for ' + text );
+					return function( args ) {
+						alert( 'demand started for \'' + text + '\' with args : ' + args );
 						return this;
 					}
 				} )( methods[ i ] );

@@ -17,104 +17,129 @@
 
 
 				/**
+				 * prepare for further PlugIns
+				 */
+				PlugIns : {},
+
+
+				/**
 				 * define ready
 				 */
-				ready : function( task , type , args ) {
-					// check for args
-					if( args && !isString( args ) ) {
-						throw new Error( 'ready( \'WAIT\' , argument ) requires a String as argument' );
-					};
+				ready : function( TaskObject , ReadyOptions ) {
+					// define readyObject for PushStack
+					var readyObject = {};
 					// define type as 'WAIT'
-					var type = 'WAIT';
-					// define ready object
-					var ready = _( [ 'Objects' , 'ReadyHandler' , 'WAIT' ] );
+					var type = ReadyOptions.type || 'WAIT';
 					// define PushStack as local
 					var PushStack = ( PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] ) );
 					// define the UseStates
 					var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
-					// define task's ReadyStates if needed
-					PushStack[ task.PushStack ].ReadyStates[ type ] = PushStack[ task.PushStack ].ReadyStates[ type ] || { length : 0 };
+					// define TaskObject's ReadyStates if needed
+					PushStack[ TaskObject.PushStack ].ReadyStates[ type ] = PushStack[ TaskObject.PushStack ].ReadyStates[ type ] || { length : 0 };
 					// define readyId for this WAIT
-					var readyId = PushStack[ task.PushStack ].ReadyStates[ type ].length;
-					// add readyTrigger to task's Stack
-					push( PushStack[ task.PushStack ] ,
+					readyObject.id = PushStack[ TaskObject.PushStack ].ReadyStates[ type ].length;
+					// check for args
+					if( ReadyOptions ) {
+						// add id to ReadyOptions
+						ReadyOptions.id = readyObject.id;
+						// define PlugIns object from WAIT
+						var PlugIn , PlugInResult , PlugIns = _( [ 'Objects' , 'ReadyHandler' , 'WAIT' , 'PlugIns' ] ); 
+						// loop args and call PlugIn if existing
+						for( PlugIn in ReadyOptions ) {
+							// check for PlugIn
+							if( PlugIns[ PlugIn ] ) {
+								// get adding information from PlugIn
+								PlugInResult = PlugIns[ PlugIn ].create( TaskObject , ReadyOptions );
+								// add the result to readyObject
+								readyObject[ PlugInResult.name ] = PlugInResult.value;
+								// if we have to restrict the WAIT
+								if( PlugInResult.restricted ) {
+									// set value to PushStack
+									readyObject.restricted = true
+								}
+							};
+						};
+					};
+					// add readyTrigger to TaskObject's Stack
+					push( PushStack[ TaskObject.PushStack ] ,
 						[ function(){ 
-							return PushStack[ task.PushStack ].ReadyStates[ type ][ readyId ]; } , args || readyId , type ] );
-					// check if we have args
-					if( args ) {
-						// we have to add an identifier for args in PushStack
-						PushStack[ task.PushStack ][ ' ' + args ] = [ readyId , PushStack[ task.PushStack ].length - 1 ];
-					}
+							return PushStack[ TaskObject.PushStack ].ReadyStates[ type ][ readyObject.id ]; } , readyObject , type ] );
 					// set ReadyStates for WAIT ready
-					push( PushStack[ task.PushStack ].ReadyStates[ type ] , UseStates.progress );
+					push( PushStack[ TaskObject.PushStack ].ReadyStates[ type ] , UseStates.progress );
 					// define trigger[ type ] if needed
-					task.trigger[ type ] = task.trigger[ type ] || {};
+					TaskObject.trigger[ type ] = TaskObject.trigger[ type ] || {};
 					// bind WAIT to trigger;
-					task.trigger[ type ][ /* args || */ readyId ] = /* args || */ true;
+					TaskObject.trigger[ type ][ /* args || */ readyObject.id ] = /* args || */ true;
 				},
 
 
 				/**
 				 * resolve
 				 */
-				resolve : function( task , type , args ) {
-					// check for args
-					if( args && !isString( args ) ) {
-						throw new Error( 'trigger( \'WAIT\' , argument ) requires a String as argument' );
-					};
-					// define ready object
-					var ready = _( [ 'Objects' , 'ReadyHandler' , 'WAIT' ] );
+				resolve : function( TaskObject , ReadyOptions ) {
 					// define PushStack as local
 					var PushStack = ( PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] ) );
 					// define the UseStates
 					var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
 					try {
-						// check if we have a task to trigger
-						if( !PushStack[ task.PushStack ].ReadyStates[ type ] || !PushStack[ task.PushStack ].ReadyStates[ type ].length ) {
-							throw new Error( 'trigger( \'WAIT\' [ , argument ] ) no WAIT found in task' );
-						}
-						// check for args in PushStack
-						if( args && PushStack[ task.PushStack ][ ' ' + args ] ) {
-							// define args' values
-							var values = PushStack[ task.PushStack ][ ' ' + args ];
-							// set state for WAIT as completed
-							PushStack[ task.PushStack ].ReadyStates[ type ][ values[ 0 ] ] = UseStates.complete;
-							// delete value from PushStack
-							delete PushStack[ task.PushStack ][ ' ' + args ];
-						}
-						// if we have no args but WAITs
-						else if( !args && PushStack[ task.PushStack ].ReadyStates[ type ].length > 0 ) {
-							// use args as counter
-							args = 0;
-							// loop the PushStack to find next unvalued WAIT
-							while( PushStack[ task.PushStack ][ args ] && (
-								PushStack[ task.PushStack ].ReadyStates[ type ][ PushStack[ task.PushStack ][ args ][ 1 ] ] === 'complete' ||
-								PushStack[ task.PushStack ][ args ][ 2 ] !== 'WAIT' ||
-								isString( PushStack[ task.PushStack ][ args ][ 1 ] ) ) 
-							) {
-								// so we have an invalid entry , next
-								args++;
+						// check if we have a TaskObject to trigger
+						if(
+							!PushStack[ TaskObject.PushStack ].ReadyStates[ ReadyOptions.type ] ||
+							!PushStack[ TaskObject.PushStack ].ReadyStates[ ReadyOptions.type ].length
+						) {
+							throw new Error( 'trigger( ReadyOptions ) no WAIT found in task' );
+						};
+						// define PlugIns object from WAIT
+						var PlugIn , PlugInResult = true, PlugIns = _( [ 'Objects' , 'ReadyHandler' , 'WAIT' , 'PlugIns' ] ); 
+						// loop args and call PlugIn if existing
+						for( PlugIn in ReadyOptions ) {
+							// check for PlugIn
+							if( PlugIns[ PlugIn ] && PlugIns[ PlugIn ].resolve ) {
+								// get adding information from PlugIn
+								PlugInResult = PlugIns[ PlugIn ].resolve( TaskObject , ReadyOptions );
+								// check for PlugInResult
+								if( !PlugInResult ) {
+									// exit the loop
+									break;
+								};
+							};
+						};
+						// if we have no false on PlugInResult from PlugIns
+						if( PlugInResult ){
+							// if we have a PushStack
+							if( PushStack[ TaskObject.PushStack ].ReadyStates[ ReadyOptions.type ].length > 0 ) {
+								// create counter
+								var i = 0;
+								// loop the PushStack to find next unvalued WAIT
+								while( PushStack[ TaskObject.PushStack ][ i ] && (
+									!PushStack[ TaskObject.PushStack ][ i ][ 2 ] ||
+									PushStack[ TaskObject.PushStack ][ i ][ 1 ].restricted === true ||
+									PushStack[ TaskObject.PushStack ].ReadyStates[ ReadyOptions.type ][ PushStack[ TaskObject.PushStack ][ i ][ 1 ].id ] === 'complete' ||
+									PushStack[ TaskObject.PushStack ][ i ][ 2 ] !== 'WAIT' ) 
+								) {
+									// so we have an invalid entry , next
+									i++;
+								};
 							};
 							// check if we have a WAIT detected
-							if( PushStack[ task.PushStack ][ args ] ) {
+							if( PushStack[ TaskObject.PushStack ][ i ] ) {
 								// mark entry as completed
-								PushStack[ task.PushStack ].ReadyStates[ type ][ PushStack[ task.PushStack ][ args ][ 1 ] ] = UseStates.complete;
+								PushStack[ TaskObject.PushStack ].ReadyStates[ ReadyOptions.type ][ PushStack[ TaskObject.PushStack ][ i ][ 1 ].id ] = UseStates.complete;
 							}
-							// so we have no valid entry left
-							else {
-								throw new Error( 'trigger( \'WAIT\' [ , argument ] ) requires a WAIT on the task' );
+							// otherwise we trigger an error
+							else{
+								throw new Error( 'trigger( ReadyOptions ) no valid WAIT detected' );
 							};
-						}
-						// execute task by setting timeout
-						window.setTimeout( function() { task.resolve(); } ); 
+						};
+						// execute TaskObject by setting timeout
+						window.setTimeout( function() { TaskObject.resolve(); } ); 
 					}
-					// if we have an error we have no WAIT on the task
+					// if we have an error we have no WAIT on the TaskObject
 					catch( e ) {
-						throw new Error( 'trigger( \'WAIT\' [ , argument ] ) requires a WAIT on the task' );
+						console.log( TaskObject , ReadyOptions );
+						throw new Error( 'trigger( ReadyOptions ) requires a WAIT on the task' );
 					};
 				}
-
-
 			}
 		);
 

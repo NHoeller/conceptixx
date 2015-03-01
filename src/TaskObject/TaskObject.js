@@ -15,9 +15,9 @@
 		 * define TaskObject as function
 		 */
 		var
-		TaskObject = function( TaskTarget , TasksOptions ) {
+		TaskObject = function( TaskTarget ) {
 			// return new TaskObject
-			return new TaskObject.fn.init( TaskTarget , TasksOptions );
+			return new TaskObject.fn.init( TaskTarget );
 		};
 
 
@@ -54,15 +54,15 @@
 			/**
 			 * define ready
 			 */
-			ready : function( type , args ) {
+			ready : function( ReadyOptions ) {
 				// define PushStack as local
 				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
 				// also define ReadyHandler as local
 				var ReadyHandler = _( [ 'Objects' , 'ReadyHandler' ] );
 				// check for handler
-				if( ReadyHandler[ type ] ) {
+				if( ReadyHandler[ ReadyOptions.type ] ) {
 					// establish ready task of type 'type'
-					ReadyHandler[ type ].ready( this , type , args );
+					ReadyHandler[ ReadyOptions.type ].ready( this , ReadyOptions );
 				};
 				// return the task
 				return PushStack[ this.PushStack ].length > 1 ? this : this.resolve();
@@ -115,7 +115,7 @@
 					// if we have a function name and its args
 					else { 
 						// call it with scope of this modula
-						this.target[ entry[ 0 ] ].apply( this.target , entry[ 1 ] );
+						PushStack[ this.PushStack ].target[ entry[ 0 ] ].apply( PushStack[ this.PushStack ].target , entry[ 1 ] );
 					};
 					// delete current entry from PushStack
 					shift( PushStack[ this.PushStack ] );
@@ -127,25 +127,21 @@
 			/**
 			 * define trigger
 			 */
-			trigger : function( type , args ) {
+			trigger : function( ReadyOptions ) {
 				// define PushStack as local
 				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
 				// define ReadyHandler as local
 				var ReadyHandler = _( [ 'Objects' , 'ReadyHandler' ] );
 				// check for bound triggers
-				if( !PushStack[ this.PushStack ].ReadyStates[ type ] ) {
-					throw new Error( 'trigger( type , arguments ) is not set for type : ' + type );
+				if( !PushStack[ this.PushStack ].ReadyStates[ ReadyOptions.type ] ) {
+					throw new Error( 'trigger( type , arguments ) is not set for type : ' + ReadyOptions.type );
 				};
 				// check for bound triggers and resolve method
-				if( !ReadyHandler[ type ].resolve ) {
-					throw new Error( 'trigger( type , arguments ) can\'t be used for type : ' + type );
-				};
-				// check for args
-				if( args && PushStack[ this.PushStack ][ ' ' + args ] === undefined ) {
-					throw new Error( 'trigger( type , arguments ) needs the correct argument to trigger');
+				if( !ReadyHandler[ ReadyOptions.type ].resolve ) {
+					throw new Error( 'trigger( type , arguments ) can\'t be used for this taskentry' );
 				};
 				// complete trigger with given args
-				ReadyHandler[ type ].resolve( this , type , args );
+				ReadyHandler[ ReadyOptions.type ].resolve( this , ReadyOptions );
 				// return the task
 				return this;
 			},
@@ -170,7 +166,7 @@
 			 * Constructor
 			 */
 			var
-			Constructor = function( TaskTarget /* , TasksOptions */ ) {
+			Constructor = function( TaskTarget ) {
 				// define PushStack
 				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
 				// set id to task (equal to PushStack id)

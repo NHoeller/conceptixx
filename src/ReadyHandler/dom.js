@@ -20,9 +20,9 @@
 				/**
 				 * define ready
 				 */
-				ready : function( task /* , type , args */ ) {
+				ready : function( TaskObject , ReadyOptions ) {
 					// define type as 'DOM'
-					var type = 'DOM';
+					var type = ReadyOptions.type || 'DOM';
 					// define ready object
 					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
 					// define PushStack as local
@@ -32,13 +32,13 @@
 					/**
 					 * if we have a not ready task
 					 */
-					if( task && PushStack[ task.PushStack ].ReadyStates[ type ] === undefined ) {
-						// add task's PushStack to ready for completition
-						ready[ ( ready.count = ready.count >>> 0 ) ] = task;
-						// add readyTrigger to task's Stack
-						push( PushStack[ task.PushStack ] , [ function(){ return PushStack[ task.PushStack ].ReadyStates[ type ]; } ] );
+					if( TaskObject && PushStack[ TaskObject.PushStack ].ReadyStates[ type ] === undefined ) {
+						// add TaskObject's PushStack to ready for completition
+						ready[ ( ready.count = ready.count >>> 0 ) ] = TaskObject;
+						// add readyTrigger to TaskObject's Stack
+						push( PushStack[ TaskObject.PushStack ] , [ function(){ return PushStack[ TaskObject.PushStack ].ReadyStates[ type ]; } ] );
 						// set ReadyStates for DOM ready
-						PushStack[ task.PushStack ].ReadyStates[ type ] = UseStates.progress;
+						PushStack[ TaskObject.PushStack ].ReadyStates[ type ] = UseStates.progress;
 						// increase count for next turn
 						ready.count++;
 					};
@@ -47,15 +47,15 @@
 					 */
 					if( document.readyState === UseStates.complete && ready.count >>> 0 > 0 ) {
 						// define some variables
-						var i = 0 , task;
+						var i = 0 , TaskObject;
 						// loop the counts
 						while( ready[ i ] !== undefined ) {
-							// get task from ready[ i ]
-							task = ready[ i ];
-							// set readyState as complete for this task
-							PushStack[ task.PushStack ].ReadyStates[ type ] = UseStates.complete; 
-							// execute task by setting timeout
-							window.setTimeout( function() { task.resolve(); } ); 
+							// get TaskObject from ready[ i ]
+							TaskObject = ready[ i ];
+							// set readyState as complete for this TaskObject
+							PushStack[ TaskObject.PushStack ].ReadyStates[ type ] = UseStates.complete; 
+							// execute TaskObject by setting timeout
+							window.setTimeout( function() { TaskObject.resolve(); } ); 
 							// delete ready[ i ] in fact of execution and increase counter
 							delete ready[ i++ ];
 						};
@@ -94,7 +94,7 @@
 				/**
 				 * addEvent
 				 */
-				addEvent : function( /* task , type , args */ ) {
+				addEvent : function( /* TaskObject , ReadyOptions */ ) {
 					// define ready object
 					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
 					// define the UseStates
@@ -110,7 +110,7 @@
 				/**
 				 * completed
 				 */
-				completed : function( /* task , type , args */ ) {
+				completed : function( /* TaskObject , ReadyOptions */ ) {
 					// define ready object
 					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
 					// define the UseStates
