@@ -20,7 +20,7 @@
 		// create regex
 		var regex = last._Regex || ( last._Regex = new RegExp( "(?:" + uid + ")*$|(" + uid + ")(?:" + uid + ")*" , 'g' ) );
 		// return the result
-		return ( arr = arr.join(uid).replace( regex , "$1" ).split( uid ) ) && slice( arr , -1 );
+		return ( arr = arr.join(uid).replace( regex , "$1" ).split( uid ) ) && slice( arr , -1 )[ 0 ];
 	};
 
 

@@ -7,10 +7,11 @@
  * 					ReadyHandler.wait
  *
  * @description :
- * adds the delay functionality to the wait handler
+ * adds the lock functionality to the wait handler
  * 
  * @example :
- * Object.wait({delay:2000}); //adds a delay of 2000 ms for automatic resolve
+ * Object.wait({key:'triggerkey'}); //adds a lock to the wait handler
+ * Object.trigger({key:'triggerkey'}); // will release the wait handler
  */
 
 
@@ -19,58 +20,49 @@
 	 */
 	_(
 		false ,
-		[ 'Objects' , 'ReadyHandler' , 'WAIT' , 'PlugIns' , 'key' ] ,
+		[ 'PlugIns' , 'ReadyHandler' , 'key' ] ,
 		{
 
 
 			/**
-			 * create a delay to a readyHandler
+			 * pull option
 			 */
-			create : function( ReadyTask , ReadyOptions ) {
+			pull : false,
+
+
+			/**
+			 * create a keyword for triggering to a readyHandler
+			 */
+			create : function( Task , Options , PushStack , Handler ) {
 				// check for key
-				if( !isString( ReadyOptions.key ) ) {
+				if( !isString( Options.key ) ) {
 					throw new Error( 'ReadyHandler expects lock as a string value ' );
 				};
-				// define PushStack as local
-				var PushStack = ( PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] ) );
-				// we have to add an identifier for args in PushStack
-				PushStack[ ReadyTask.PushStack ][ ' ' + ReadyOptions.key ] = ReadyOptions.id;
-				// return delay information
-				return { name : 'key' , value : ReadyOptions.key , restricted : true };
+				// we have to add an identifier for key in PushStack
+				Handler[ 'key' ] = Options.key;
+				// switch 'move' to false
+				Handler[ 'move' ] = false;
+				// set dependency for resolving
 			},
 
 
 			/**
-			 * resolve 
+			 * create a trigger function for resolving the handler
 			 */
-			resolve : function( ReadyTask , ReadyOptions ) {
-				// define PushStack as local
-				var PushStack = ( PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] ) );
-				// define the UseStates
-				var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
-				// check for args in PushStack
-				if( ReadyOptions.key && PushStack[ ReadyTask.PushStack ][ ' ' + ReadyOptions.key ] !== undefined ) {
-					// define counter
-					var i = 0;
-					// loop PushStack to detect WAIT
-					while( 
-						PushStack[ ReadyTask.PushStack ][ i ] && (
-						!PushStack[ ReadyTask.PushStack ][ i ][ 2 ] ||
-						PushStack[ ReadyTask.PushStack ][ i ][ 1 ].key !== ReadyOptions.key
-					) ) {
-						// not the correct entry - go next
-						i++;
-					}
-					delete PushStack[ ReadyTask.PushStack ][ i ][ 1 ].restricted
-					// delete value from PushStack
-					delete PushStack[ ReadyTask.PushStack ][ ' ' + ReadyOptions.key ];
-					// we are done can proceed with regular WAIT
+			trigger : function( Task , Options , PushStack , Handler ) {
+				// define ReadyHandler as local
+				var ReadyHandler = _( [ 'ReadyHandler' ] );
+				// check for key in Handler
+				if( Options.key && Handler.key === Options.key ) {
+					// we are done can proceed
 					return true;
 				};
 				// if we did not pass the test abort the resolve
 				return false;
-			}
+			},
 
 
 		}
 	);
+
+

@@ -30,13 +30,25 @@
 			/**
 			 * define append
 			 */
-			append : function( func , args ) {
-				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
-				// append task with given function
-				push( PushStack[ this.PushStack ] , isFunction( func ) ? func : [ func , args] );
+			append : function( fn , args ) {
+				// define variables
+				var PushStack = _( [ 'PushStack' ] )[ this.PushStack ];
+				// append task with given function 'call'
+				push(
+					PushStack ,
+					{
+						// set type to be callable
+						'type' : 'call',
+						// add callback depending on parameters
+						'call' : 	isFunction( fn ) ?
+							{ fn : fn , args : args } :
+							{ id : fn , args : args },
+						// set task entry as removable
+						'move' : true
+					}
+				);
 				// return the task
-				return PushStack[ this.PushStack ].length > 1 ? this : this.resolve();
+				return PushStack.length > 1 ? this : this.resolve();
 			},
 
 				
@@ -44,28 +56,130 @@
 			 * define completed
 			 */
 			completed : function() {
-				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
 				// return if task is currently ready or waiting
-				return !(PushStack[ this.PushStack ].length > 0);
+				return !(_( [ 'PushStack' ] )[ this.PushStack ].length > 0);
 			},
 
 
 			/**
 			 * define ready
 			 */
-			ready : function( ReadyOptions ) {
+			ready : function( Options ) {
+				// define variables
+				var ReadyHandler = _( [ 'ReadyHandler' ] ),
+					PlugIns = _( [ 'PlugIns' , 'ReadyHandler' ] ),
+					PushStack = _( [ 'PushStack' ] )[ this.PushStack ],
+					id = PushStack.length,
+					PlugIn
+				;
+				// check for objected handler 'type' = { ... }
+				if( !Options.type ) {
+					// loop all elements
+					for( PlugIn in Options ) {
+						// check for ReadyHandler
+						if( ReadyHandler[ PlugIn ] ) {
+							// set type to Options
+							Options.type = PlugIn;
+							// done here
+							break;
+						};
+					};
+				};
+				// establish ready task of type 'type'
+				ReadyHandler[ Options.type ].ready( this , Options , PushStack );
+				// check for PlugIns
+				for( PlugIn in Options ) {
+					// check for PlugIn
+					if( PlugIns[ PlugIn ] ) {
+						// run the create of the PlugIn
+						PlugIns[ PlugIn ].create( this , Options , PushStack , PushStack[ id ] );
+					};
+				};
+/** => TEMPORARY **/
+				// set uHID to Handler
+				PushStack[ id ].uHID = _( true , [ 'Defaults' , 'ReadyHandler' , 'uHID' ] ,
+					_( [ 'Defaults' , 'ReadyHandler' , 'uHID' ] ) + 1 || 0 );
+/** => TEMPORARY **/
+				// return the task
+				return PushStack.length > 1 ? this : this.resolve();
+			},
+
+
+			/**
+			 * define resolve
+			 */
+			resolve : function() {
 				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
-				// also define ReadyHandler as local
-				var ReadyHandler = _( [ 'Objects' , 'ReadyHandler' ] );
-				// check for handler
-				if( ReadyHandler[ ReadyOptions.type ] ) {
-					// establish ready task of type 'type'
-					ReadyHandler[ ReadyOptions.type ].ready( this , ReadyOptions );
+				var ReadyHandler = _( [ 'ReadyHandler' ] ),
+					PushStack = _( [ 'PushStack' ] )[ this.PushStack ];
+				// define some variables
+				var current , type;
+				// loop all PushStack entries for this task
+				while( ( current = PushStack[ 0 ] ) ) {
+					// get type
+					type = current.type
+					// if we have something to call
+					if( type === 'call' ) {
+						// check if we have a function
+						if( current[ type ].fn ) {
+							// call function in global scope
+							current[ type ].fn.call( window , current[ type ].args );
+						}
+						// otherwise we have a modula id
+						else {
+							// call id() of modula in its scope
+							this.target[ current[ type ].id ].apply( this.target , current[ type ].args );
+						};
+						// delete current entry from PushStack
+						shift( PushStack );
+						// so we are done
+						continue;
+					};
+					// check for resolvables
+					if( ReadyHandler[ type ].resolve ) {
+						// run pull with current PushStack
+						ReadyHandler[ type ].resolve( this , PushStack , current );
+					};
+					// return the task
+					return this;
 				};
 				// return the task
-				return PushStack[ this.PushStack ].length > 1 ? this : this.resolve();
+				return this;
+			},
+
+
+			/**
+			 * define trigger
+			 */
+			trigger : function( Options ) {
+				// define PushStack as local
+				var PushStack = _( [ 'PushStack' ] )[ this.PushStack ];
+				// define ReadyHandler as local
+				var ReadyHandler = _( [ 'ReadyHandler' ] );
+				// define variables
+				var type = Options.type;
+				// check for type in existing readyHandler
+				if( ReadyHandler[ type ] ) {
+					// define counter
+					var current , result , i = -1;
+					// loop the entries of this PushStack
+					while( ( current = PushStack[ ++i ] ) ) {
+						// check for type in current PushStack
+						if( current.type === type ) {
+							// complete trigger with given args
+							result = ReadyHandler[ type ].trigger( this , Options , PushStack , current );
+							// if we have true as result
+							if( result ) {
+								// delete entry from PushStack
+								splice( PushStack , i , 1 );
+								// and we are done
+								break;
+							};
+						};
+					};
+				};
+				// return the task
+				return this.resolve();
 			},
 
 
@@ -74,7 +188,7 @@
 			 */
 			remove : function( deleteAll ) {
 				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
+				var PushStack = _( [ 'PushStack' ] );
 				// if we have no PushStack entry we are done
 				if( PushStack[ this.PushStack ].length === 0 ) { return this; }
 				// so delete only the last entry
@@ -85,64 +199,6 @@
 					PushStack[ this.PushStack ] = [];
 				};
 				// return task
-				return this;
-			},
-
-
-			/**
-			 * define resolve
-			 */
-			resolve : function() {
-				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
-				// define some variables
-				var entry;
-				// loop all PushStack entries for this task
-				while( ( entry = PushStack[ this.PushStack ][ 0 ] ) ) {
-					// if we have a executable
-					if( isFunction( entry ) ){
-						// call it with scope of this modula
-						entry.call( this );
-					}
-					// if we have a ReadyState
-					else if( isFunction( entry[ 0 ] ) ) {
-						// if ReadyState is not complete we are done
-						if( entry[ 0 ]() !== _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] ).complete ) {
-							// return the task
-							return this;
-						};
-					}
-					// if we have a function name and its args
-					else { 
-						// call it with scope of this modula
-						PushStack[ this.PushStack ].target[ entry[ 0 ] ].apply( PushStack[ this.PushStack ].target , entry[ 1 ] );
-					};
-					// delete current entry from PushStack
-					shift( PushStack[ this.PushStack ] );
-				}
-				return this;
-			},
-
-
-			/**
-			 * define trigger
-			 */
-			trigger : function( ReadyOptions ) {
-				// define PushStack as local
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
-				// define ReadyHandler as local
-				var ReadyHandler = _( [ 'Objects' , 'ReadyHandler' ] );
-				// check for bound triggers
-				if( !PushStack[ this.PushStack ].ReadyStates[ ReadyOptions.type ] ) {
-					throw new Error( 'trigger( type , arguments ) is not set for type : ' + ReadyOptions.type );
-				};
-				// check for bound triggers and resolve method
-				if( !ReadyHandler[ ReadyOptions.type ].resolve ) {
-					throw new Error( 'trigger( type , arguments ) can\'t be used for this taskentry' );
-				};
-				// complete trigger with given args
-				ReadyHandler[ ReadyOptions.type ].resolve( this , ReadyOptions );
-				// return the task
 				return this;
 			},
 
@@ -159,7 +215,13 @@
 			/**
 			 * define a pushStack for TaskObject as Empty Array
 			 */
-			_( true , [ 'Objects' , 'TaskObject' , 'PushStack' ] , { length : 0 } );
+			_( true , [ 'PushStack' ] , { length : 0 } );
+
+
+			/**
+			 * define a PlugIns object for ReadyHandler
+			 */
+			_( true , [ 'PlugIns' , 'ReadyHandler' ] );
 
 
 			/**
@@ -168,7 +230,7 @@
 			var
 			Constructor = function( TaskTarget ) {
 				// define PushStack
-				var PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] );
+				var PushStack = _( [ 'PushStack' ] );
 				// set id to task (equal to PushStack id)
 				this.PushStack = PushStack.length;
 				// create new PushStack entry

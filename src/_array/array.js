@@ -19,5 +19,6 @@
 	push = simplify( _array.push ),
 	shift = simplify( _array.shift ),
 	slice = simplify( _array.slice );
+	splice = simplify( _array.splice );
 	
 

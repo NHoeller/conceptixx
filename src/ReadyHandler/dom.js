@@ -13,32 +13,42 @@
 		 */
 		_(
 			true ,
-			[ 'Objects' , 'ReadyHandler' , 'DOM' ] ,
+			[ 'ReadyHandler' , 'DOM' ] ,
 			{
 
 
 				/**
 				 * define ready
 				 */
-				ready : function( TaskObject , ReadyOptions ) {
+				ready : function( task , Options , PushStack ) {
 					// define type as 'DOM'
-					var type = ReadyOptions.type || 'DOM';
+					var type = 'DOM';
 					// define ready object
-					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
+					var ready = _( [ 'ReadyHandler' , 'DOM' ] );
 					// define PushStack as local
-					var PushStack = ( PushStack = _( [ 'Objects' , 'TaskObject' , 'PushStack' ] ) );
+					var PushStack = _( [ 'PushStack' ] )[ task.PushStack ];
 					// define the UseStates
 					var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
 					/**
 					 * if we have a not ready task
 					 */
-					if( TaskObject && PushStack[ TaskObject.PushStack ].ReadyStates[ type ] === undefined ) {
-						// add TaskObject's PushStack to ready for completition
-						ready[ ( ready.count = ready.count >>> 0 ) ] = TaskObject;
-						// add readyTrigger to TaskObject's Stack
-						push( PushStack[ TaskObject.PushStack ] , [ function(){ return PushStack[ TaskObject.PushStack ].ReadyStates[ type ]; } ] );
+					if( task && PushStack.ReadyStates[ type ] === undefined ) {
+						// add task's PushStack to ready for completition
+						ready[ ( ready.count = ready.count >>> 0 ) ] = task;
+						// add readyTrigger to task's Stack
+						push(
+							PushStack , 
+							{
+								// set type to DOM
+								'type' : type ,
+								// make task not removable
+								'move' : false
+							}
+						);
+						// remove the type from Options
+						delete Options.type;
 						// set ReadyStates for DOM ready
-						PushStack[ TaskObject.PushStack ].ReadyStates[ type ] = UseStates.progress;
+						PushStack.ReadyStates[ type ] = UseStates.progress;
 						// increase count for next turn
 						ready.count++;
 					};
@@ -47,15 +57,27 @@
 					 */
 					if( document.readyState === UseStates.complete && ready.count >>> 0 > 0 ) {
 						// define some variables
-						var i = 0 , TaskObject;
+						var i = 0 , task;
 						// loop the counts
 						while( ready[ i ] !== undefined ) {
-							// get TaskObject from ready[ i ]
-							TaskObject = ready[ i ];
-							// set readyState as complete for this TaskObject
-							PushStack[ TaskObject.PushStack ].ReadyStates[ type ] = UseStates.complete; 
-							// execute TaskObject by setting timeout
-							window.setTimeout( function() { TaskObject.resolve(); } ); 
+							// define new counter
+							var current , j = -1;
+							// get task from ready[ i ]
+							task = ready[ i ];
+							// set readyState as complete for this task
+							PushStack.ReadyStates[ type ] = UseStates.complete;
+							// loop the PushStack
+							while( ( current = PushStack[ ++j ] ) ) {
+								// check for dom ready
+								if( current.type === type ) {
+									// delete entry from PushStack
+//									splice( PushStack , j , 1 );
+									// end the while
+									break;
+								}
+							}
+							// execute task by setting timeout
+							window.setTimeout( function() { task.resolve(); } ); 
 							// delete ready[ i ] in fact of execution and increase counter
 							delete ready[ i++ ];
 						};
@@ -94,9 +116,9 @@
 				/**
 				 * addEvent
 				 */
-				addEvent : function( /* TaskObject , ReadyOptions */ ) {
+				addEvent : function( /* task , type , args */ ) {
 					// define ready object
-					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
+					var ready = _( [ 'ReadyHandler' , 'DOM' ] );
 					// define the UseStates
 					var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
 					// add eventHandler aswell as Fallback
@@ -110,9 +132,9 @@
 				/**
 				 * completed
 				 */
-				completed : function( /* TaskObject , ReadyOptions */ ) {
+				completed : function( /* task , type , args */ ) {
 					// define ready object
-					var ready = _( [ 'Objects' , 'ReadyHandler' , 'DOM' ] );
+					var ready = _( [ 'ReadyHandler' , 'DOM' ] );
 					// define the UseStates
 					var UseStates = _( [ 'Defaults' , 'ReadyHandler' , 'UseStates' ] );
 					// check if we have set eventHandler
@@ -125,7 +147,16 @@
 						// re-run the ready fuction
 						ready.ready();
 					};
-				}
+				},
+
+
+				/**
+				 * resolve
+				 */
+//				resolve : function( task , PushStack , Handler ) {
+//					// return false , always!
+//					return false;
+//				}
 
 
 			}
