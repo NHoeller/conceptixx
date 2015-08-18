@@ -1,0 +1,133 @@
+@charset "utf-8";
+/**
+ * @project : modula
+ * @package : css
+ * @internal : mediaQueriesPhoneTabletDesktop
+ * @type : cascading style sheet
+ * @dependencies :	none
+ *
+ * @description :
+ * stylesheet for adding styles for mobile devices this  file
+ * is dedicated to mobile phones and tablets (lowRes, HiRes, 
+ * HD and UHD) that are used in portrait mode (also the 
+ * landscape versions are loaded for case of device swiping
+ */
+
+
+/*
+<!-- mobile phones portrait -->
+<link
+	rel="stylesheet"
+	href="path/to/file/phone320.css"
+	media="
+		only
+		screen
+		and (min-device-width: 320px)
+		and (max-device-width: 599px)
+		and (orientation: portrait),
+		only
+		screen
+		and (min-device-width: 320px)
+		and (max-device-width: 599px)
+		and (orientation: landscape)
+	"
+>
+ */
+@media
+	only
+	screen
+	and (min-width: 320px)
+	and (max-width: 599px)
+	and (orientation: portrait),
+	only
+	screen
+	and (min-width: 320px)
+	and (max-width: 599px)
+	and (orientation:landscape)
+{
+	
+}
+
+/*
+<!-- mobile mobiles portrait (UHD phones and tablets)-->
+<link
+	rel="stylesheet"
+	href="path/to/file/mobile600.css"
+	media="
+		only
+		screen
+		and (min-device-width: 600px)
+		and (max-device-width: 1023px)
+		and (orientation: portrait),
+		only
+		screen
+		and (min-device-width: 600px)
+		and (max-device-width: 1023px)
+		and (orientation: landscape);
+	"
+>
+ */
+@media
+		only
+		screen
+		and (min-device-width: 600px)
+		and (max-device-width:1023px)
+		and (orientation: portrait),
+		only
+		screen
+		and (min-device-width: 600px)
+		and (max-device-width:1023px)
+		and (orientation:landscape)
+{
+	
+}
+
+/*
+<!-- mobile tablets portrait (UHD tablets and lowRes desktops)-->
+<link
+	rel="stylesheet"
+	href="path/to/file/tablet1024.css"
+	media="
+		only
+		screen
+		and (min-device-width:1024px)
+		and (orientation: portrait),
+		only
+		screen
+		and (min-device-width:1024px)
+		and (orientation:landscape);
+	"
+>
+ */
+@media
+		only
+		screen
+		and (min-device-width:1024px)
+		and (orientation: portrait),
+		only
+		screen
+		and (min-device-width:1024px)
+		and (orientation:landscape)
+{
+	
+}
+
+/*
+<!-- desktop (desktops with 1280px or more - NO orientation)-->
+<link
+	rel="stylesheet"
+	href="path/to/file/desktop.css"
+	media="
+		screen
+		and (min-device-width:1280px)
+	"
+>
+ */
+@media
+		screen
+		and (min-device-width:1280px)
+{
+	
+}
+
+

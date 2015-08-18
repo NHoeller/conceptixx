@@ -10,7 +10,7 @@
  * with the (only) first script tag
  *
  * @example
- * <[ script type='text/javascript' src='Demand.js' data-demand='{filled_with_individual_demands_hash}' ]><[ /script ]>
+ * <[ script type='text/javascript' src='Demand.js' data-demand='{filled_with_individual_demand_hashs}' ]><[ /script ]>
  */
  
  

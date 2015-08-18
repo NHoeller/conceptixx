@@ -11,6 +11,9 @@
 	/**
 	 * Support for getElementsByTagName
 	 * some Browser return also comments
+	 * @return [boolean]
+	 * true = we need support functions
+	 * false = no support needed
 	 */
 	_(
 		true ,

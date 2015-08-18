@@ -24,5 +24,7 @@
 	version = '1.01.001 prototype',
 	// define unique identifier for this modula
 	uid = 'modula ' + Date.now();
+	// define the GlobalUniqueIDentifier
+	_GUID = Math.floor(Math.random() * 1274);
 
 

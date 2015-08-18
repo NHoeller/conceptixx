@@ -10,6 +10,10 @@
 
 	/**
 	 * Support for getElementsByClassName
+	 * if we have a native getElementsByClassName
+	 * @return [boolean]
+	 * true = we need support functions
+	 * false = no support needed
 	 */
 	_(
 		true ,
@@ -20,6 +24,9 @@
 
 	/**
 	 * same Support but Opera < 10 and Safari < 4 safe
+	 * @return [boolean]
+	 * true = we need support functions
+	 * false = no support needed
 	 */
 	_(
 			true ,

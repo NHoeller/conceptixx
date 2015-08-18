@@ -1,8 +1,8 @@
 /**
  * @project : modula.js
- * @package :
+ * @package : modula.js.LOADER
  * @internal : outro
- * @type : 
+ * @type : anonymous function
  * @dependencies :	none
  */
 
@@ -19,6 +19,6 @@
 	return modula;
 
 
-} )( window );
+} )( window , window.document );
 
 

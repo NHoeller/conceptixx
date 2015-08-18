@@ -1,12 +1,27 @@
 /**
  * @project : modula.js
- * @package : 
+ * @package : modula.js.LOADER
  * @internal : intro
- * @type : 
+ * @type : anonymous function
  * @dependencies :	none
  */
-( function( context , undefined ) {
+( function( m , o , d , u , l , a , _ , j , s ) {
+	
+	// m = window
+	// o = document
+	// d = undefined = tasks
+	// u = undefined
+	// l = undefined = events
+	// a = undefined = ajax
+	// _ = undefined = _ (defaulter)
+	// j = undefined = demand
+	// s = undefined = selector
 
+	// RESERVED
+	// ca
+	// cb
+	// fw
+	// td
 
 	/**
 	 * define use strict
@@ -18,14 +33,18 @@
 	 * create Modula initial console output
 	 */
 	if( console ) {
-		console.log( '%cmodula.js' , 'color:#d07020;font-weight:700;text-decoration:underline' );
-		console.log( '%c(m)' , 'font-weight:700;color:#a09080' , 'managed');
-		console.log( '%c(o)' , 'font-weight:700;color:#a09080' , 'optimizing');
-		console.log( '%c(d)' , 'font-weight:700;color:#a09080' , 'demand');
-		console.log( '%c(u)' , 'font-weight:700;color:#a09080' , 'utility');
-		console.log( '%c(l)' , 'font-weight:700;color:#a09080' , 'loader');
-		console.log( '%c(a)' , 'font-weight:700;color:#a09080' , 'application');
-		console.log( '%cversion' , 'color:#d07020;font-weight:700;text-decoration:underline' , '1.01.001 - prototype' );
+		var td = 'text-decoration:underline' ,
+			fw = 'font-weight:700' ,
+			ca = 'color:#d07020' ,
+			cb = 'color:#a09080';
+		console.log( '%cmodula.js' , ca + ';' + fw + ';' + td );
+		console.log( '%c(m)' , cb + ';' + fw , 'managed');
+		console.log( '%c(o)' , cb + ';' + fw , 'optimizing');
+		console.log( '%c(d)' , cb + ';' + fw , 'demand');
+		console.log( '%c(u)' , cb + ';' + fw , 'utility');
+		console.log( '%c(l)' , cb + ';' + fw , 'loader');
+		console.log( '%c(a)' , cb + ';' + fw , 'application');
+		console.log( '%cversion' , ca + ';' + fw + ';' + td , '1.01.001 - prototype' );
 	};
 
 
