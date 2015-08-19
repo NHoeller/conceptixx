@@ -12,18 +12,18 @@
 
 
 	/**
-	 * Cache is the modula caching
+	 * cache is the modula caching
 	 */
 	var
-	Cache = function( cacheName ) {
+	cache = function( cacheName ) {
 		// return caching function
-		return Cache[ ' ' + cacheName ] || ( Cache[ ' ' + cacheName ] = function( index , content ) {
+		return cache[ ' ' + cacheName ] || ( cache[ ' ' + cacheName ] = function( index , content ) {
 			// if index is cached
-			if( Cache[ ' ' + cacheName ][ ' ' + index ] ) { return Cache[ ' ' + cacheName ][ ' ' + index ]; }
+			if( cache[ ' ' + cacheName ][ ' ' + index ] ) { return cache[ ' ' + cacheName ][ ' ' + index ]; }
 			// if not cached and empty index or content return false
 			if( !content || !index ) { return false; } // !1
 			// set content to cache and return content
-			return ( Cache[ ' ' + cacheName ][ ' ' + index ] = content );
+			return ( cache[ ' ' + cacheName ][ ' ' + index ] = content );
 		} );
 	};
 

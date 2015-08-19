@@ -1,7 +1,7 @@
 /**
  * @project : modula
  * @package : core
- * @internal : declareSimpilfy
+ * @internal : declareFunctionSimpilfy
  * @type : function
  * @dependencies :	none
  * 

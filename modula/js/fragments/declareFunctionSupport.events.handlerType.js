@@ -1,7 +1,7 @@
 /**
  * @project : modula
  * @package : core
- * @internal : declareFunctionSupport.events.HandlerType
+ * @internal : declareFunctionSupport.events.handlerType
  * @type : function / Declaration
  * @dependencies :	support
  * 					defaults
@@ -13,7 +13,7 @@
 	 */
 	_(
 		true ,
-		[ 'Support' , 'Events' , 'useHandler' ] ,
+		[ 'support' , 'events' , 'useHandler' ] ,
 		window.addEventListener ? true : window.addEvent ? false : undefined
 	);
 

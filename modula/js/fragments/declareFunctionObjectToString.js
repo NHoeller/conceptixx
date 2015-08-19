@@ -4,6 +4,7 @@
  * @internal : declareFunctionObjectToString
  * @type : function
  * @dependencies :	isString
+ * 					object
  *
  * @description :
  * turns an object into a separated and delimited string

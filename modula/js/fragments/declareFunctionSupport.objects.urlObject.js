@@ -1,7 +1,7 @@
 /**
 * @project : modula
 * @package : core
-* @internal : declareFunctionSupport.objects.UrlObject
+* @internal : declareFunctionSupport.objects.urlObject
 * @type : function
 * @dependencies :	defaults
 */
@@ -13,9 +13,9 @@
 	 * @see https://developer.mozilla.org/en-US/docs/Web/API/URL
 	 */
 	_(
-		_( [ 'Support' ] ) ,
+		_( [ 'support' ] ) ,
 		false ,
-		[ 'UrlObject' ] ,
+		[ 'urlObject' ] ,
 		!( typeof URL === 'function' )
 	);
 

@@ -12,12 +12,12 @@
 
 
 	/**
-	 * define Propertizer
+	 * define propertizer
 	 */
 	var
-	Propertizer = function( propertyName , propertyValue ) {
+	propertizer = function( propertyName , propertyValue ) {
 		// check if property is already in cache or store propertyValue to cache
-		return Cache.Properties[ propertyName ] || ( Cache.Properties[ propertyName ] = propertyValue );
+		return cache.properties[ propertyName ] || ( cache.properties[ propertyName ] = propertyValue );
 	};
 
 

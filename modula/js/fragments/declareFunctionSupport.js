@@ -6,11 +6,11 @@
  * @dependencies :	none
  *
  * @description :
- * the Support is used to build crossbrowser compatible modula.js functions.
+ * the support is used to build crossbrowser compatible modula.js functions.
  * 
  * @example
- * Support.test = Support( function() { return true; } ); // result Support.test = true
- * Support.test = Support( function() { return false; } ); // result Support.test = false
+ * support.test = support( function() { return true; } ); // result support.test = true
+ * support.test = support( function() { return false; } ); // result support.test = false
  */
 
 
@@ -18,9 +18,9 @@
 	 * Support
 	 */
 	var
-	Support = _(
+	support = _(
 		true ,
-		[ 'Support' ] ,
+		[ 'support' ] ,
 		function( fn ) {
 		// create div element
 		var div = doc.createElement( 'div' );

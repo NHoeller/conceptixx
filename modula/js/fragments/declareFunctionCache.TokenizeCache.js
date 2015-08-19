@@ -1,16 +1,16 @@
 /**
  * @project : modula
  * @package : core, extend
- * @internal : declareFunctionCache.TokenizeCache
+ * @internal : declareFunctionCache.tokenizeCache
  * @type : declaration
  * @dependencies :	cache
  */
 
 
 	/**
-	 * define TokenizeCache for modula.js
+	 * define tokenizeCache for modula.js
 	 */
 	var
-	TokenizeCache = Cache( 'Tokenizer' );
+	tokenizeCache = cache( 'tokenizer' );
 
 

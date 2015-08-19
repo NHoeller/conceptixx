@@ -1,16 +1,16 @@
 /**
 * @project : modula
 * @package : core
-* @internal : declareFunctionSupport.objects.XhrObject
+* @internal : declareFunctionSupport.objects.xhrObject
 * @type : function
 * @dependencies :	defaults
 */
 
 
 	_(
-		_( [ 'Support' ] ) ,
+		_( [ 'support' ] ) ,
 		false ,
-		[ 'XhrObject' ] ,
+		[ 'xhrObject' ] ,
 		( function() { 
 			// check for regular XMLHttpRequests
 			if( XMLHttpRequest ) { return true };

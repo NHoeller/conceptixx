@@ -1,7 +1,7 @@
 /**
  * @project : modula
  * @package : core, extend
- * @internal : declareFunctionCache.PropertyCache
+ * @internal : declareFunctionCache.propertyCache
  * @type : declaration
  * @dependencies :	cache
  */
@@ -11,6 +11,6 @@
 	 * define PropertyCache for modula.js
 	 */
 	var
-	PropertyCache = Cache( 'Properties' );
+	propertyCache = cache( 'properties' );
 
 
